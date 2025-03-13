@@ -11,6 +11,7 @@ function Header(){
         
         <Head>
             <title>Cesar Maceió Turismo</title>
+            
         </Head>
         <div className=" flex items-center gap-2 font-medium tracking-[4px]">
             <img className="size-18" src="/assets/logo-cmt.png"/>

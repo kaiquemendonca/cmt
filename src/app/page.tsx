@@ -1,103 +1,118 @@
-import Image from "next/image";
+'use client'
+
+import BackgroundImage from "@/components/BackgroundImage";
+import Controls from "@/components/Controls";
+import Header from "@/components/Header";
+
+import SlideInfo from "@/components/SlideInfo";
+import Slides from "@/components/Slides";
+import { AnimatePresence } from "motion/react";
+import { Righteous } from "next/font/google";
+import React, { useState } from "react";
+
+const inter = Righteous({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+export type Data = {
+  img: string;
+  title: string;
+  description: string;
+  location: string;
+}
+
+export type CurrentSlideData = {
+  data: Data;
+  index: number;
+};
+
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const [data, setData] = React.useState<Data[]>(sliderData.slice(1));
+  const [transitionData, setTransitionData] = React.useState<Data>(sliderData[0]);
+  const [currentSlideData, setCurrentSlideData] = React.useState<CurrentSlideData>({
+    data: initData,
+    index: 0,
+  });
+
+  return (
+    <main
+      className={`${inter.className}
+        relative min-h-screen select-none overflow-hidden text-white antialiased `}
+    >
+      <AnimatePresence>
+        <BackgroundImage
+          transitionData={transitionData}
+          currentSlideData={currentSlideData}
+        />
+        <div className="absolute z-20 h-full w-full">
+          <Header />
+          <div className="flex h-full w-full grid-cols-10 flex-col md:grid">
+            <div className="col-span-4 mb-3 flex h-full flex-1 flex-col justify-end px-5 md:mb-0 md:justify-center md:px-10">
+              <SlideInfo
+                transitionData={transitionData}
+                currentSlideData={currentSlideData}
+              />
+            </div>
+            <div className="col-span-6 flex h-full flex-1 flex-col justify-start p-4 md:justify-center md:p-10">
+              <Slides data={data} />
+              <Controls
+                currentSlideData={currentSlideData}
+                data={data}
+                transitionData={transitionData}
+                initData={initData}
+                handleData={setData}
+                handleTransitionData={setTransitionData}
+                handleCurrentSlideData={setCurrentSlideData}
+                sliderData={sliderData}
+              />
+            </div>
+
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </AnimatePresence>
+      <footer>
+          <div className="absolute z-50 bottom-8 right-8">
+              <a className="size-8" href="https://api.whatsapp.com/send?l=pt&phone=5582991432144"> <img src="/assets/icons-whatsapp1.svg"/></a>
+          </div>
+          <div className="absolute bottom-3 right-1/2 z-50 ">
+            <p className="text-xs font-medium">Powered Kaíque Mendonça © 2025</p>
+          </div>
       </footer>
-    </div>
+    </main>
+
+
   );
 }
+
+const sliderData = [
+  {
+    img: "/assets/PraiaGunga.png",
+    location: "Roteiro",
+    description: "A Praia do Gunga possui uma excelente estrutura com restaurantes e barracas para refeições, além de uma paisagem inesquecível onde é possível ver a beleza e o imenso coqueiral no Mirante do Gunga com vista para a praia.",
+    title: "Praia do Gunga"
+  },
+  {
+    img: "/assets/praia-de-maragogi.png",
+    location: "Maragogi",
+    description: "Maragogi está situada bem no coração da Costa dos Corais , a maior barreira de corais do Brasil, que também é uma belíssima área de preservação ambiental. A cidade de Maragogi é famosa por suas praias de mar realmente cristalino, águas quentes e piscinas naturais paradisíacas , por isso o apelido de caribe brasileiro.",
+    title: "Praia de Maragogi"
+  },
+  {
+    img: "/assets/milagres.jpg",
+    location: "São Miguel dos Milagres",
+    description: "A Praia de São Miguel dos Milagres é uma praia em Alagoas, Brasil, com águas calmas e mornas, e piscinas naturais. É considerada uma das melhores praias do Brasil.",
+    title: "Milagres"
+  },
+  {
+    img: "/assets/praia_do_frances.jpg",
+    location: "Francês",
+    description: "Localizada no município de Marechal Deodoro, a apenas 33 km de Maceió, a Praia do Francês é um verdadeiro cartão-postal do litoral sul de Alagoas. Com um mar que alterna entre águas tranquilas e ondas ideais para o surf, essa praia encanta turistas de todo o Brasil. A paisagem é um espetáculo à parte: barreiras de corais, piscinas naturais, coqueirais exuberantes e um pôr do sol inesquecível fazem da Praia do Francês um destino imperdível para quem visita a região.",
+    title: "Praia do Francês"
+  },
+]
+
+const initData = sliderData[0];

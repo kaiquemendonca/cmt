@@ -40,7 +40,7 @@ export default function Carousel({ dataC, buttonClose }: Props) {
                     style={{ transform: `translateX(-${curr * 100}%)` }}
                 >
                     <div className="max-w-xl flex">
-                        {dataC?.img2.map((s) => (
+                        {dataC?.img2.map((s: any) => (
                             <img src={s} />
                         ),
                         
@@ -65,7 +65,7 @@ export default function Carousel({ dataC, buttonClose }: Props) {
 
                 <div className="z-99 absolute bottom-4 right-0 left-0">
                     <div className="flex items-center justify-center gap-2">
-                        {dataC?.img2.map((_, i) => (
+                        {dataC?.img2.map((_:any, i:any) => (
                             <div
                                 className={`
               transition-all w-3 h-3 bg-white rounded-full

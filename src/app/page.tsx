@@ -44,9 +44,6 @@ export default function Home() {
     ReactPixel.pageView();
   }
 
-  const trackMetaEvent = (event, data) => {
-    ReactPixel.track(event, data);
-  };
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {

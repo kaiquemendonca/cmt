@@ -17,7 +17,8 @@ export const Principal = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.8 }}
                     className="cursor-pointer font-thin transition easi-in-out hover:bg-white hover:text-[#0905bc] text-3xl p-3 px-10 rounded-lg border border-white text-white">
-                    Reservar Passeio
+                    <a href="https://api.whatsapp.com/send?l=pt&phone=5582991432144">Reservar Passeio</a>
+                    
                 </motion.button>
             </div>
 

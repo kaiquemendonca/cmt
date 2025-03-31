@@ -57,7 +57,7 @@ export default function Home() {
 
 
   const buttonClose = useRef(null);
-  const checkModal = (e) => {
+  const checkModal = (e:any) => {
     if (showModal && buttonClose.current?.contains(e.target)) {
       setShowModal(false);
     }

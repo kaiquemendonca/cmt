@@ -4,13 +4,13 @@ import SliderCard from "./SliderCard";
 
 
 type Props = {
-    data: Data[];
+    dataS: Data[];
 }
 
-function Slides({ data }: Props) {
+function Slides({ dataS }: Props) {
     return (
         <div className="flex w-full gap-6">
-            {data.map((data) => {
+            {dataS.map((data) => {
                 return <SliderCard key={data.img} data={data} />;
             })}
         </div>

@@ -5,10 +5,10 @@ import Progress from "./Progress";
 
 
 type Props= {
-    currentSlideData: CurrentSlideData;
+    currentSlideDataC: CurrentSlideData;
     sliderData: Data[];
     data: Data[];
-    transitionData: Data;
+    transitionDataC: Data;
     handleData: React.Dispatch<React.SetStateAction<Data[]>>;
     handleTransitionData: React.Dispatch<React.SetStateAction<Data>>;
     handleCurrentSlideData: React.Dispatch<React.SetStateAction<CurrentSlideData>>;
@@ -18,8 +18,8 @@ type Props= {
 function Controls({
     sliderData,
     data,
-    transitionData,
-    currentSlideData,
+    transitionDataC,
+    currentSlideDataC,
     handleData,
     handleTransitionData,
     handleCurrentSlideData,
@@ -27,11 +27,11 @@ function Controls({
 }: Props) {
     const handlePrev = () => {
         handleData((prevData) => [
-            transitionData ? transitionData: initData,
+            transitionDataC ? transitionDataC: initData,
             ...prevData.slice(0, prevData.length - 1),
         ]);
         handleCurrentSlideData({
-            data: transitionData? transitionData: sliderData[0],
+            data: transitionDataC? transitionDataC: sliderData[0],
             index: sliderData.findIndex(
                 (ele) => ele.img === data[data.length -1].img
             ),
@@ -42,14 +42,14 @@ function Controls({
     const handleNext = () => {
         handleData((prev) => prev.slice(1));
         handleCurrentSlideData({
-            data: transitionData ? transitionData : initData,
+            data: transitionDataC ? transitionDataC : initData,
             index: sliderData.findIndex((ele) => ele.img === data[0].img),
         });
         handleTransitionData(data[0]);
         setTimeout(() =>{
             handleData((newData) => [
                 ...newData,
-                transitionData ? transitionData : initData,
+                transitionDataC ? transitionDataC : initData,
             ]);
         }, 500);
     };
@@ -62,7 +62,7 @@ function Controls({
             <SliderButton handleClick={handleNext}>
                 <IoIosArrowForward className="text-xl"/>
             </SliderButton>
-            <Progress curIndex={currentSlideData.index} length={sliderData.length} /> 
+            <Progress curIndex={currentSlideDataC.index} length={sliderData.length} /> 
         </div>
     );
 }

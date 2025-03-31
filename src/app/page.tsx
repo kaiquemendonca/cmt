@@ -56,9 +56,13 @@ export default function Home() {
 
 
 
+  const teste = 'dois';
+
+
+
   const buttonClose = useRef(null);
   const checkModal = (e:any) => {
-    if (showModal && buttonClose.current?.contains(e.target)) {
+    if (showModal && buttonClose.current) {
       setShowModal(false);
     }
   }

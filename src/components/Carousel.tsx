@@ -3,10 +3,10 @@ import { ChevronLeft, ChevronRight } from "react-feather"
 
 type Props = {
     dataC: any,
-    buttonClose: any;
+    btnClose: ()=>void;
 }
 
-export default function Carousel({ dataC, buttonClose }: Props) {
+export default function Carousel({ dataC, btnClose }: Props) {
 
     const autoSlide = false;
     const autoSlideInterval = 3000;
@@ -79,7 +79,7 @@ export default function Carousel({ dataC, buttonClose }: Props) {
 
 
 
-            <div ref={buttonClose}  className="z-99 fixed top-5 right-5 w-10 h-10 cursor-pointer text-white text-5xl">
+            <div  onClick={btnClose} className="z-99 fixed top-5 right-5 w-10 h-10 cursor-pointer text-white text-5xl">
                 x
             </div>
         </div>

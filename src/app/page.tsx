@@ -47,29 +47,12 @@ export default function Home() {
   });
 
 
- 
- 
-
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    document.addEventListener("mousedown", checkModal);
-  })
-
-  
-
-
-  const teste = 'dois';
-
-
-
-  const buttonClose = useRef(null);
-  const checkModal = (e:any) => {
-    if (showModal && buttonClose.current) {
-      setShowModal(false);
-    }
+  const btnClose = () =>{
+    setShowModal(false);
   }
-
+  
   const openModal = () => {
     setShowModal(true)
   }
@@ -93,7 +76,7 @@ export default function Home() {
         className={`${inter.className}
         relative min-h-screen select-none overflow-hidden text-white antialiased `}
       >
-        {showModal ? <Carousel dataC={transitionData ? transitionData : currentSlideData.data} buttonClose={buttonClose} /> : ""
+        {showModal ? <Carousel dataC={transitionData ? transitionData : currentSlideData.data} btnClose={btnClose} /> : ""
 
         }
         <AnimatePresence>

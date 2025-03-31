@@ -13,6 +13,7 @@ import { Principal } from "@/components/Principal";
 import { Combo } from "@/components/Combo";
 import Carousel from "@/components/Carousel";
 import ReactPixel from 'react-facebook-pixel';
+import { Router } from "react-router-dom";
 
 const inter = Righteous({
   subsets: ["latin"],
@@ -31,18 +32,23 @@ export type CurrentSlideData = {
   index: number;
 };
 
-
-
-
-
 export default function Home() {
 
-
   const pixelId = '1043158914334354';
-  const initMetaPixel = () => {
-    ReactPixel.init(pixelId);
-    ReactPixel.pageView();
-  }
+  React.useEffect(() => {
+    import("react-facebook-pixel")
+      .then((x) => x.default)
+      .then((ReactPixel) => {
+        ReactPixel.init(pixelId);
+        ReactPixel.pageView();
+
+
+      });
+  });
+
+
+ 
+ 
 
   const [showModal, setShowModal] = useState(false);
 
@@ -50,10 +56,7 @@ export default function Home() {
     document.addEventListener("mousedown", checkModal);
   })
 
-  useEffect(() => {
-    initMetaPixel();
-  }, []);
-
+  
 
 
   const teste = 'dois';

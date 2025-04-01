@@ -12,8 +12,7 @@ import { Contacts } from "@/components/Contacts";
 import { Principal } from "@/components/Principal";
 import { Combo } from "@/components/Combo";
 import Carousel from "@/components/Carousel";
-import ReactPixel from 'react-facebook-pixel';
-import { Router } from "react-router-dom";
+
 
 const inter = Righteous({
   subsets: ["latin"],
@@ -41,18 +40,19 @@ export default function Home() {
       .then((ReactPixel) => {
         ReactPixel.init(pixelId);
         ReactPixel.pageView();
-
-
       });
   });
 
+  React.useEffect(() => {
+    window.scrollTo({top:0, behavior: "smooth"})
+  },[]);
 
   const [showModal, setShowModal] = useState(false);
 
-  const btnClose = () =>{
+  const btnClose = () => {
     setShowModal(false);
   }
-  
+
   const openModal = () => {
     setShowModal(true)
   }
@@ -116,7 +116,7 @@ export default function Home() {
       <Contacts />
       <footer className="fixed z-60 bottom-8 right-8">
         <div >
-          <a className="size-8" href="https://api.whatsapp.com/send?l=pt&phone=5582991432144"> <img src="/assets/icons-whatsapp1.svg" /></a>
+          <a className="size-8" href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank"> <img src="/assets/icons-whatsapp1.svg" /></a>
         </div>
 
       </footer>

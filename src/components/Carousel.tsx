@@ -32,7 +32,7 @@ export default function Carousel({ dataC, btnClose }: Props) {
 
     return (
 
-        <div className="z-99 fixed mx-auto top-0 bottom-0 left-0 right-0 flex justify-center items-center bg-black/90">
+        <div className="z-99 fixed mx-auto top-0 bottom-0 left-0 right-0 flex justify-center items-center bg-[#0905bc]">
 
             <div className="overflow-hidden relative">
                 <div

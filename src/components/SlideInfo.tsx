@@ -35,7 +35,7 @@ function SlideInfo({ transitionData, currentSlideData, onClick }: Props) {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.8 }}
                 
-                className="cursor-pointer animate-jump animate-infinite animate-duration-[2000ms] animate-ease-linear w-fit rounded-full border-[1px] border-[#fffff8f] px-6 py-3 text-[10px] font-thin transition easi-in-out hover:bg-white hover:text-black">
+                className="cursor-pointer animate-jump animate-infinite animate-duration-[2000ms] animate-ease-linear w-fit rounded-full border-[1px] border-[#fffff8f] px-6 py-3 text-[10px] font-thin transition easi-in-out hover:bg-white hover:text-black bg-[#0905bc]">
                    <a>VER MAIS</a> 
                 </motion.button>
             </motion.div>

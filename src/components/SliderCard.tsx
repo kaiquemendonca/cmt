@@ -8,7 +8,7 @@ type Props = {
 function SliderCard({ data }: Props) {
     return (
         <motion.div
-            className=" relative h-52 min-w-[252px] rounded-2xl shadow-md md:h-80 md-min-w-[250px]"
+            className=" relative h-24 min-w-[140px] rounded-2xl shadow-md md:h-80 md:min-w-[250px]"
             layout
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{
@@ -37,12 +37,10 @@ function SliderCard({ data }: Props) {
                         layout
                         className=" mb-2 h-[2px] w-3 rounded-full bg-white"
                     ></motion.div>
-                    <motion.p layoutId={data.location} className="text-xs text-[#D5D5D6]">
-                        {data.location}
-                    </motion.p>
+
                     <motion.h1
                     layoutId={data.title}
-                    className="text-xl leading-6 text-white"
+                    className="text-xs leading-6 text-white"
                     >
                         {data.title}
                     </motion.h1>

@@ -1,8 +1,8 @@
 export const Contacts = () => {
     return (
-        <div id="contacts" className="relative h-screen w-full">
-            <video className="absolute left-0 top-0 h-full w-full object-cover object-top " src="/assets/VID-20250401-WA0004.mp4" autoPlay loop muted></video>
-            <div className="relative flex flex-col md:flex-row h-full items-center justify-center">
+        <div id="contacts" className="relative h-screen w-full flex items-center justify-center">
+            <video className="absolute h-full w-full object-cover object-top md:w-full" src="/assets/VID-20250401-WA0004.mp4" autoPlay loop muted></video>
+            <div className="relative flex flex-col md:flex-row h-full items-center justify-center w-full">
                 <div className="flex flex-col h-52 min-w-[252px] rounded-2xl shadow-md md:h-80 md-min-w-[250px] bg-white my-10 md:mx-10">
                     <a className="flex flex-col w-full h-full" href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank">
                         <div className="flex flex-1 justify-center items-end">

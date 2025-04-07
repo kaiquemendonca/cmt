@@ -39,9 +39,9 @@ export default function Carousel({ dataC, btnClose }: Props) {
                     className="flex flex-col transition-transform ease-out duration-500"
                     style={{ transform: `translateX(-${curr * 100}%)` }}
                 >
-                    <div className="max-w-xl flex">
+                    <div className="max-w-xl  flex items-center">
                         {dataC?.img2.map((s: any) => (
-                            <img src={s} />
+                            <img className="w-full object-cover rounded-xl h-[80%]" src={s} />
                         ),
                         
                         )}

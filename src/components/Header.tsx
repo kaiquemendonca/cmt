@@ -98,7 +98,7 @@ export default Header;
 const menu = [
     { nome: "Início", href: "/#home" },
     { nome: "Passeios", href: "/#trips" },
-    { nome: "Combo de Passeios", href: "/#combotrips" },
+    { nome: "Promoção", href: "/#combotrips" },
     { nome: "Contatos", href: "/#contacts" }
 ];
 

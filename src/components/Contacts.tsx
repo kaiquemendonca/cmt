@@ -3,9 +3,9 @@ import { motion } from "motion/react";
 export const Contacts = () => {
     return (
         <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            initial={{ opacity: 0}}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
             id="contacts" className="relative h-screen w-full flex items-center justify-center">
             <video className="absolute h-full w-full object-cover object-top md:w-full" src="/assets/VID-20250401-WA0004.mp4" autoPlay loop muted></video>
             <div className="relative flex flex-col md:flex-row h-full items-center justify-center w-full">

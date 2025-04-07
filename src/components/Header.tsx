@@ -50,7 +50,7 @@ function Header({ ative, setAtive }: HeaderProps) {
                     hover:text-blue-800 md:group md:flex items-center md:py-2
                     `}
                             onClick={() => handleMenu(index)}>
-                            <span className="hidden md:inline-block nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
+                            <span className={`${ative == index && "bg-blue-800"} hidden md:inline-block mr-4 h-px w-8 bg-white transition-all motion-reduce:transition-none`}></span>
                             <a href={`${menu.href}`} onClick={handleScroll}>
                                 {menu.nome}
                             </a>
@@ -63,11 +63,11 @@ function Header({ ative, setAtive }: HeaderProps) {
 
             <div id="contacts" className="hidden md:inline-block relative h-screen w-full flex items-start justify-start">
                
-                <div className="relative flex flex-col md:flex-row h-full items-end justify-start w-full">
-                    <div className="flex flex-col h-52 w-[30%] rounded-2xl  md-min-w-[250px] md:mx-10">
+                <div className="relative flex flex-col md:flex-row h-full items-start justify-start w-full">
+                    <div className="flex flex-col h-30 w-[30%] rounded-2xl  md-min-w-[250px] md:mr-2">
                         <a className="flex flex-col w-full h-full" href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank">
                             <div className="flex flex-1 justify-center items-end">
-                                <img className="w-30" src="/assets/icons8-whatsapp.svg" />
+                                <img className="size[50px]" src="/assets/icons8-whatsapp.svg" />
                             </div>
                             <div className=" text-white text-center flex flex-1 justify-center items-center">
                                 WHATSAPP 24 HORAS <br /> (82) 99143-2144
@@ -76,10 +76,10 @@ function Header({ ative, setAtive }: HeaderProps) {
                         </a>
 
                     </div>
-                    <div className="flex flex-col h-52 w-[30%] rounded-2xl md-min-w-[250px]">
+                    <div className="flex flex-col h-30 w-[30%] rounded-2xl md-min-w-[250px]">
                         <a className="flex flex-col w-full h-full" href="https://www.instagram.com/cesarmaceiotur/" target="_blank">
                             <div className="flex flex-1 justify-center items-end">
-                                <img className="w-30" src="/assets/icons8-instagram.svg" />
+                                <img className="size[50px]" src="/assets/icons8-instagram.svg" />
                             </div>
                             <div className="flex flex-1 justify-center items-center">
                                 <p className="text-white text-center">INSTAGRAM <br /> @cesarmaceiotur</p>

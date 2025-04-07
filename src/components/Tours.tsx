@@ -57,13 +57,14 @@ export default function Tours({ active, data }: Props) {
   const setVideoRef = (i: number): RefCallback<HTMLVideoElement> => (el) => {
     videoRefs.current[i] = el;
   };
+  
 
   return (
     <motion.div
       {...swipeHandlers}
-      initial={{ opacity: 0, x: 50 }}
-      animate={isLoaded ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+      initial={{ opacity: 0 }}
+      animate={isLoaded ? { opacity: 1 } : {}}
+      transition={{ duration: 1.5, ease: 'easeOut' }}
       className="relative w-full flex flex-col items-center justify-center overflow-hidden pb-8"
     >
       <div className="absolute z-40 top-1/2 left-4  -translate-y-1/2">

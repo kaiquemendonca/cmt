@@ -10,7 +10,11 @@ export const Combo = () => {
 
 
     return (
-        <div id="combotrips" className="flex items-center justify-center w-full relative min-h-screen">
+        <motion.div
+        initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+         id="combotrips" className="flex items-center justify-center w-full relative min-h-screen">
 
             <div className="relative w-full h-screen flex flex-col justify-end md:justify-start items-center">
                 <div className="flex flex-col justify-center items-center">
@@ -19,7 +23,7 @@ export const Combo = () => {
                 </div>
 
             </div>
-        </div>
+        </motion.div>
     )
 
 }

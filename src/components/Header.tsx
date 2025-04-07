@@ -31,13 +31,13 @@ function Header({ ative, setAtive }: HeaderProps) {
 
 
 
-        <div className="fixed top-0 z-50  flex flex-col  items-center px-5 text-xs font-medium uppercase md:w-[40%] md:relative md:h-screen md:items-start">
+        <div className="w-full fixed top-0 z-50  flex flex-col  items-center px-5 text-xs font-medium uppercase md:w-[40%] md:relative md:h-screen md:items-start">
 
             <div className=" flex items-center font-medium tracking-[4px] md:text-3xl">
                 <img className="size-18" src="/assets/logo-cmt.png" />
                 Cesar Maceió Turismo
             </div>
-            <ul className="flex flex-wrap items-center gap-3 text-sm md:flex-col  md:items-start md:justify-center md:py-10">
+            <ul className="flex flex-wrap items-center gap-3 text-sm md:flex-col  md:items-start md:justify-center py-3 md:py-10">
                 { }
                 {menu.map((menu, index) => {
                     return (

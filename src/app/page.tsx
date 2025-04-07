@@ -81,7 +81,7 @@ export default function Home() {
         <div className="md:w-[60%] w-full md:relative">
           {ative === 0 && <Principal />}
           {ative === 1 && <main id="trips" className="relative flex flex-col items-center justify-center w-full h-screen" >
-            <div className="z-99 absolute top-30 md:top-2 rounded-2xl w-auto h-auto bg-white">
+            <div className="z-99 absolute top-30 md:top-4  w-[80%] h-auto bg-white">
               <div className="grid grid-cols-3 md:grid-cols-6 flex justify-between items-center h-full">
                 {sliderData.map((menu, index) => {
                   return (
@@ -90,7 +90,7 @@ export default function Home() {
                       key={index}
 
                       className={`${active == index && " bg-blue-900 text-white"
-                        } rounded-2xl h-full flex justify-center items-center cursor-pointer transition-all duration-100 ease-in-out
+                        }  h-full flex justify-center items-center cursor-pointer transition-all duration-100 ease-in-out
                     hover:bg-blue-900 hover:text-white text-blue-800 text-center
                     `}
                       onClick={() => menuClickTours(index)}

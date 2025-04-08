@@ -46,7 +46,7 @@ export const Principal = () => {
             </div>
 
 
-            <video className=" absolute h-full w-full md:max-w-6xl object-cover object-center brightness-70" src="/assets/vd-principal.mp4" autoPlay muted loop ></video>
+            <video className=" absolute h-full w-full md:max-w-6xl object-cover object-center brightness-70" src="/assets/vd-principal.mp4" playsInline autoPlay muted loop ></video>
         </motion.div>
 
     )

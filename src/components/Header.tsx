@@ -32,7 +32,7 @@ function Header({ ative, setAtive }: HeaderProps) {
 
 
         <div className="w-full fixed top-0 z-50  flex flex-col  items-center px-5 text-xs font-medium uppercase md:w-[40%] md:relative md:h-screen md:items-start">
-
+            
             <div className=" flex items-center font-medium tracking-[4px] md:text-3xl">
                 <img className="size-18" src="/assets/logo-cmt.png" />
                 Cesar Maceió Turismo

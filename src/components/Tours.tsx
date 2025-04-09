@@ -57,7 +57,7 @@ export default function Tours({ active, data }: Props) {
   const setVideoRef = (i: number): RefCallback<HTMLVideoElement> => (el) => {
     videoRefs.current[i] = el;
   };
-  
+
 
   return (
     <motion.div
@@ -65,7 +65,7 @@ export default function Tours({ active, data }: Props) {
       initial={{ opacity: 0 }}
       animate={isLoaded ? { opacity: 1 } : {}}
       transition={{ duration: 1.5, ease: 'easeOut' }}
-      className="relative w-full flex flex-col items-center justify-center overflow-hidden pb-8"
+      className="relative w-full flex flex-col items-center justify-end md:justify-center overflow-hidden mt-8"
     >
       <div className="absolute z-40 top-1/2 left-4  -translate-y-1/2">
         <button onClick={prev} className="hidden md:inline-block bg-white cursor-pointer p-2 rounded-full shadow">
@@ -78,54 +78,54 @@ export default function Tours({ active, data }: Props) {
         </button>
       </div>
 
-      <div className="relative w-[90vw] max-w-[1000px] aspect-[16/9] overflow-visible rounded-2xl">
+      <div className="relative w-[90vw] max-w-[1000px] aspect-[9/12] h-[70%] overflow-visible rounded-2xl">
         <div
           ref={containerRef}
           className="relative flex items-center justify-center w-full h-full"
         >
           <AnimatePresence initial={false} mode="sync">
-          {data[active].img.map((dados, i) => {
-            const distance = (i - index + total) % total;
-            const isVisible = distance <= 1 || distance >= total - 1;
-            const isActive = i === index;
-            const scale = isActive ? 1.0 : 0.6;
-            const opacity = isVisible ? 1 : 0;
-            const offset = ((distance > total / 2 ? distance - total : distance) * 250);
+            {data[active].img.map((dados, i) => {
+              const distance = (i - index + total) % total;
+              const isVisible = distance <= 1 || distance >= total - 1;
+              const isActive = i === index;
+              const scale = isActive ? 1.0 : 0.6;
+              const opacity = isVisible ? 1 : 0;
+              const offset = ((distance > total / 2 ? distance - total : distance) * 250);
 
-            return (
-              <motion.div
-                key={i}
-                className="absolute w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[40%] h-full rounded-xl overflow-hidden shadow-md"
-                animate={{
-                  x: isVisible ? offset : 0,
-                  scale,
-                  opacity,
-                  zIndex: isActive ? 10 : 5,
-                }}
-                transition={{ duration: 0.5 }}
-              >
-                {dados.endsWith('.mp4') ? (
-                <video 
-                muted
-                loop
-                autoPlay 
-                className="object-cover w-full h-full"
-                src={dados}
-                ref={setVideoRef(i)}
-                >      
-                </video>
-              ) : (
-                <img
-                  src={dados}
-                  alt={`carousel-${i}`}
-                  className="object-cover w-full h-full"
-                />
-              )}
-                
+              return (
+                <motion.div
+                  key={i}
+                  className="absolute w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[40%] h-full rounded-xl overflow-hidden shadow-md"
+                  animate={{
+                    x: isVisible ? offset : 0,
+                    scale,
+                    opacity,
+                    zIndex: isActive ? 10 : 5,
+                  }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {dados.endsWith('.mp4') ? (
+                    <video
+                      muted
+                      loop
+                      autoPlay
+                      className="object-cover w-full h-full"
+                      src={dados}
+                      ref={setVideoRef(i)}
+                    >
+                    </video>
+                  ) : (
+                    <img
+                      src={dados}
+                      alt={`carousel-${i}`}
+                      className="object-cover w-full h-full"
+                    />
+                  )}
 
-              </motion.div>
-            );
-          })}
+
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </div>
       </div>
@@ -139,6 +139,10 @@ export default function Tours({ active, data }: Props) {
               }`}
           ></button>
         ))}
+      </div>
+
+      <div className="flex justify-center py-3">
+        <h1 className="text-5xl text-center">{data[active].title}</h1>
       </div>
     </motion.div>
   );

@@ -90,8 +90,8 @@ export default function Home() {
                       key={index}
 
                       className={`${active == index && " bg-blue-900 text-white"
-                        }  h-full flex justify-center items-center cursor-pointer transition-all duration-100 ease-in-out
-                    hover:bg-blue-900 hover:text-white text-blue-800 text-center
+                        }  h-[50px] flex justify-center items-center cursor-pointer transition-all duration-100 ease-in-out
+                    hover:bg-blue-900 hover:text-white text-blue-800 text-center border border-blue-800
                     `}
                       onClick={() => menuClickTours(index)}
                     >
@@ -106,10 +106,7 @@ export default function Home() {
             </div>
 
             <Tours active={active} data={sliderData} />
-            <div className="flex justify-center">
-              <h1 className="text-5xl text-center">{sliderData[active].title}</h1>
-            </div>
-
+            
           </main>}
 
           {ative === 2 && <Combo />}

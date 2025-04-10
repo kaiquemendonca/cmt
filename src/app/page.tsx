@@ -1,9 +1,6 @@
 'use client'
 
-import BackgroundImage from "@/components/BackgroundImage";
-import Controls from "@/components/Controls";
 import Header from "@/components/Header";
-import SlideInfo from "@/components/SlideInfo";
 import Slides from "@/components/Slides";
 import { AnimatePresence } from "motion/react";
 import { Righteous } from "next/font/google";
@@ -11,7 +8,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Contacts } from "@/components/Contacts";
 import { Principal } from "@/components/Principal";
 import { Combo } from "@/components/Combo";
-import Carousel from "@/components/Carousel";
 import Tours from "@/components/Tours";
 import { motion } from "motion/react";
 
@@ -49,26 +45,9 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, []);
 
-  const [showModal, setShowModal] = useState(false);
-
-  const btnClose = () => {
-    setShowModal(false);
-  }
-
-  const openModal = () => {
-    setShowModal(true)
-  }
-
-  const [active, setActive] = useState(0);
-  const menuClickTours = (index: number) => {
-    setActive(index);
-  }
-
+  
   const [ative, setAtive] = React.useState(0);
 
-  React.useEffect(() => {
-    console.log(ative);
-  })
   return (
 
     <div className="w-full bg-[#6ABAC4] h-screen">
@@ -80,41 +59,9 @@ export default function Home() {
         <Header ative={ative} setAtive={setAtive} />
         <div className="md:w-[60%] w-full md:relative">
           {ative === 0 && <Principal />}
-          {ative === 1 && <main id="trips" className="relative flex flex-col items-center justify-center w-full h-screen" >
-            <div className="z-99 absolute top-30 md:top-4  w-[80%] h-auto bg-white">
-              <div className="grid grid-cols-3 md:grid-cols-6 flex justify-between items-center h-full">
-                {sliderData.map((menu, index) => {
-                  return (
-                    <motion.li
-                      layout
-                      key={index}
-
-                      className={`${active == index && " bg-blue-900 text-white"
-                        }  h-[50px] flex justify-center items-center cursor-pointer transition-all duration-100 ease-in-out
-                    hover:bg-blue-900 hover:text-white text-blue-800 text-center border border-blue-800
-                    `}
-                      onClick={() => menuClickTours(index)}
-                    >
-                      <a className={`${active == index && " text-white"}  hover:text-white`}>
-                        {menu.title}
-                      </a>
-
-                    </motion.li>
-                  );
-                })}
-              </div>
-            </div>
-
-            <Tours active={active} data={sliderData} />
-            
-          </main>}
-
+          {ative === 1 && <Tours data={sliderData} />}
           {ative === 2 && <Combo />}
-
           {ative === 3 && <Contacts />}
-
-
-
           <footer className="md:hidden fixed z-99 bottom-8 w-full right-8 flex justify-end">
             <div >
               <a className="size-8" href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank"> <img src="/assets/icons-whatsapp1.svg" /></a>
@@ -131,14 +78,14 @@ export default function Home() {
 const sliderData = [
   {
     id: 0,
-    img: ["/assets/gunga/IMG-20250401-WA0032.jpg", "/assets/gunga/IMG-20250401-WA0045.jpg", "/assets/gunga/IMG-20250401-WA0048.jpg", "/assets/gunga/IMG-20250401-WA0049.jpg", "/assets/gunga/IMG-20250401-WA0050.jpg", "/assets/gunga/IMG-20250401-WA0058.jpg", "/assets/gunga/IMG-20250401-WA0059.jpg", "/assets/gunga/IMG-20250401-WA0060.jpg", "/assets/gunga/IMG-20250401-WA0061.jpg", "/assets/gunga/IMG-20250401-WA0062.jpg"],
+    img: ["/assets/gunga/IMG-20250401-WA0001.jpg","/assets/gunga/IMG-20250401-WA0032.jpg", "/assets/gunga/IMG-20250401-WA0045.jpg", "/assets/gunga/IMG-20250401-WA0048.jpg", "/assets/gunga/IMG-20250401-WA0049.jpg", "/assets/gunga/IMG-20250401-WA0050.jpg", "/assets/gunga/IMG-20250401-WA0058.jpg", "/assets/gunga/IMG-20250401-WA0059.jpg", "/assets/gunga/IMG-20250401-WA0060.jpg", "/assets/gunga/IMG-20250401-WA0061.jpg", "/assets/gunga/IMG-20250401-WA0062.jpg"],
     location: "Roteiro",
     description: "A Praia do Gunga possui uma excelente estrutura com restaurantes e barracas para refeições, além de uma paisagem inesquecível onde é possível ver a beleza e o imenso coqueiral no Mirante do Gunga com vista para a praia.",
     title: "Gunga"
   },
   {
     id: 1,
-    img: ["/assets/IMG-20250401-WA0002.jpg", "/assets/IMG-20250401-WA0013.jpg", "/assets/IMG-20250401-WA0015.jpg", "/assets/IMG-20250401-WA0020.jpg", "/assets/IMG-20250401-WA0021.jpg", "/assets/IMG-20250401-WA0023.jpg", "/assets/IMG-20250401-WA0037.jpg", "/assets/IMG-20250401-WA0039.jpg", "/assets/IMG-20250401-WA0040.jpg", "/assets/IMG-20250401-WA0044.jpg"],
+    img: ["/assets/maragogi/IMG-20250401-WA0002.jpg", "/assets/maragogi/IMG-20250401-WA0013.jpg", "/assets/maragogi/IMG-20250401-WA0015.jpg", "/assets/maragogi/IMG-20250401-WA0020.jpg", "/assets/maragogi/IMG-20250401-WA0021.jpg", "/assets/maragogi/IMG-20250401-WA0023.jpg", "/assets/maragogi/IMG-20250401-WA0037.jpg", "/assets/maragogi/IMG-20250401-WA0039.jpg", "/assets/maragogi/IMG-20250401-WA0040.jpg", "/assets/maragogi/IMG-20250401-WA0044.jpg", "/assets/maragogi/IMG-20250401-WA0046.jpg"],
     location: "Maragogi",
     description: "Maragogi está situada bem no coração da Costa dos Corais , a maior barreira de corais do Brasil, que também é uma belíssima área de preservação ambiental. A cidade de Maragogi é famosa por suas praias de mar realmente cristalino, águas quentes e piscinas naturais paradisíacas , por isso o apelido de caribe brasileiro.",
     title: "Maragogi"
@@ -152,14 +99,14 @@ const sliderData = [
   },
   {
     id: 3,
-    img: ["/assets/frances/IMG-20250401-WA0067.jpg", "/assets/frances/IMG-20250401-WA0068.jpg", "/assets/frances/IMG-20250401-WA0069.jpg", "/assets/frances/IMG-20250401-WA0066.jpg"],
+    img: ["/assets/frances/IMG-20250401-WA0067.jpg", "/assets/frances/IMG-20250401-WA0068.jpg", "/assets/frances/IMG-20250401-WA0069.jpg", "/assets/frances/IMG-20250401-WA0066.jpg","/assets/frances/f1.jpg","/assets/frances/f2.jpg","/assets/frances/f3.jpg"],
     location: "Francês",
     description: "A Praia do Francês é um verdadeiro cartão-postal do litoral sul de Alagoas. Com um mar que alterna entre águas tranquilas e ondas ideais para o surf, essa praia encanta turistas de todo o Brasil. A paisagem é um espetáculo à parte: barreiras de corais, piscinas naturais, coqueirais exuberantes e um pôr do sol inesquecível fazem da Praia do Francês um destino imperdível para quem visita a região.",
     title: "Francês"
   },
   {
     id: 4,
-    img: ["/assets/barra/IMG-20250401-WA0073.jpg", "/assets/barra/IMG-20250401-WA0074.jpg", "/assets/barra/IMG-20250401-WA0075.jpg", "/assets/barra/IMG-20250401-WA0076.jpg", "/assets/barra/IMG-20250401-WA0078.jpg", "/assets/barra/IMG-20250401-WA0079.jpg", "/assets/barra/IMG-20250401-WA0080.jpg", "/assets/barra/IMG-20250401-WA0081.jpg"],
+    img: ["/assets/barra/IMG-20250401-WA0073.jpg", "/assets/barra/IMG-20250401-WA0074.jpg", "/assets/barra/IMG-20250401-WA0075.jpg", "/assets/barra/IMG-20250401-WA0076.jpg", "/assets/barra/IMG-20250401-WA0078.jpg", "/assets/barra/IMG-20250401-WA0079.jpg", "/assets/barra/IMG-20250401-WA0080.jpg", "/assets/barra/IMG-20250401-WA0081.jpg","/assets/barra/IMG-20250401-WA0006.jpg","/assets/barra/IMG-20250410-WA0093.jpg","/assets/barra/IMG-20250410-WA0094.jpg","/assets/barra/IMG-20250410-WA0095.jpg","/assets/barra/IMG-20250410-WA0096.jpg"],
     location: "Barra de São Miguel",
     description: "",
     title: "Barra de São Miguel"
@@ -170,6 +117,13 @@ const sliderData = [
     location: "Ipioca",
     description: "",
     title: "Ipioca"
+  },
+  {
+    id: 6,
+    img: ["/assets/foz/IMG-20250410-WA0082.jpg", "/assets/foz/IMG-20250410-WA0083.jpg","/assets/foz/IMG-20250410-WA0084.jpg","/assets/foz/IMG-20250410-WA0085.jpg","/assets/foz/IMG-20250410-WA0086.jpg","/assets/foz/IMG-20250410-WA0087.jpg","/assets/foz/IMG-20250410-WA0088.jpg"],
+    location: "Foz do Rio São Francisco",
+    description: "",
+    title: "Foz do Rio São Francisco"
   },
 ]
 

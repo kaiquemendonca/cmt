@@ -1,7 +1,6 @@
 'use client'
 
 import Header from "@/components/Header";
-import Slides from "@/components/Slides";
 import { AnimatePresence } from "motion/react";
 import { Righteous } from "next/font/google";
 import React, { useState, useEffect, useRef } from "react";

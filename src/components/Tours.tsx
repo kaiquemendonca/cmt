@@ -66,7 +66,7 @@ export default function Tours({ data }: Props) {
 
 
   return (
-    <main id="trips" className="relative flex flex-col items-center justify-center mt-18 w-full h-[vh100] md:h-screen md:mt-0 md:justify-start md:items-start" >
+    <main id="trips" className="relative flex flex-col items-center justify-center mt-18 w-full h-auto md:h-screen md:mt-0 md:justify-start md:items-start bg-[#6ABAC4]" >
 
       <motion.div
         {...swipeHandlers}

@@ -53,7 +53,7 @@ export default function Home() {
 
 
       < div className={`${inter.className}
-    text-white antialiased  w-full md:mx-auto md:h-screen md:max-w-screen-2xl md:px-6  flex`}>
+    text-white antialiased  w-full md:mx-auto md:h-screen md:max-w-screen-2xl md:px-6 bg-[#6ABAC4] flex`}>
 
         <Header ative={ative} setAtive={setAtive} />
         <div className="md:w-[60%] w-full md:relative">

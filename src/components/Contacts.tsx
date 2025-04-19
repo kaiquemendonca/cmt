@@ -6,34 +6,30 @@ export const Contacts = () => {
 
     return (
         <motion.div
-            initial={{ opacity: 0}}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: 'easeOut' }}
-            id="contacts" className="relative h-screen w-full flex items-center justify-center">
-            <video className="absolute h-full w-full object-cover object-top md:w-full" src="/assets/VID-20250401-WA0004.mp4" autoPlay loop muted playsInline ></video>
-            <div className="relative flex flex-col md:flex-row h-full items-center justify-center w-full">
-                <div className="flex flex-col h-52 min-w-[252px] rounded-2xl shadow-md md:h-80 md-min-w-[250px] bg-white my-10 md:mx-10">
-                    <a className="flex flex-col w-full h-full" href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank">
-                        <div className="flex flex-1 justify-center items-end">
-                            <img className="w-30" src="/assets/icons8-whatsapp.svg" />
-                        </div>
-                        <div className=" text-black text-center flex flex-1 justify-center items-center">
-                            WHATSAPP 24 HORAS <br /> (82) 99143-2144
-
-                        </div>
-                    </a>
-
+            id="contacts" className="w-full flex items-center justify-center bg-blue-800    ">
+            <div className="flex flex-col md:flex-row h-full items-center justify-center w-full">
+                <div className="flex flex-col items-center justify-center mb-8">
+                    <div className="w-64">
+                        <img src="/assets/logo-cmt.png" className="object-cover w-full" />
+                    </div>
+                    <div className="flex ">
+                        <a href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank" className="mx-3">+55 (82) 99143-2144</a><img src="/assets/icones/whatss.svg" />
+                    </div>
+                    <div className="flex ">
+                        <a href="https://www.instagram.com/cesarmaceiotur/" target="_blank" className="mx-3">@cesarmaceiotur</a><img src="/assets/insta.svg" />
+                    </div>
                 </div>
-                <div className="flex flex-col h-52 min-w-[252px] rounded-2xl shadow-md md:h-80 md-min-w-[250px] bg-white">
-                    <a className="flex flex-col w-full h-full" href="https://www.instagram.com/cesarmaceiotur/" target="_blank">
-                        <div className="flex flex-1 justify-center items-end">
-                            <img className="w-30" src="/assets/icons8-instagram.svg" />
-                        </div>
-                        <div className="flex flex-1 justify-center items-center">
-                            <p className="text-black text-center">INSTAGRAM <br /> @cesarmaceiotur</p>
-
-                        </div>
-                    </a>
+                <div className="w-full">
+                    <div className="flex flex-col items-center justify-center">
+                        <span className="w-[80%] h-[1px] bg-black mx-auto"></span>
+                    </div>
+                    <div className="font-thin text-sm flex flex-col items-center justify-center my-2">
+                        <a>©2025 Todos os direitos reservados</a>
+                        <a className="">Desenvolvido por Kaíque Mendonça</a>
+                    </div>
                 </div>
             </div>
         </motion.div>

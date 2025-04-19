@@ -1,7 +1,14 @@
 import { useState, useRef, useEffect, RefCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useSwipeable } from 'react-swipeable';
+
+type PasseioDetalhado = {
+  titulo: string;
+  valor: string;
+  descricao: string;
+  duracao: string;
+};
 
 type SliderItem = {
   id: number;
@@ -9,6 +16,8 @@ type SliderItem = {
   location: string;
   description: string;
   title: string;
+  valor: string;
+  passeios: PasseioDetalhado[];
 };
 
 type Props = {
@@ -16,9 +25,7 @@ type Props = {
 };
 
 
-
 export default function Tours({ data }: Props) {
-
   const [active, setActive] = useState(0);
   const [index, setIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -28,7 +35,6 @@ export default function Tours({ data }: Props) {
 
   const next = () => setIndex((prev) => (prev + 1) % total);
   const prev = () => setIndex((prev) => (prev - 1 + total) % total);
-
 
 
   const menuClickTours = (index: number) => {
@@ -63,48 +69,43 @@ export default function Tours({ data }: Props) {
   const setVideoRef = (i: number): RefCallback<HTMLVideoElement> => (el) => {
     videoRefs.current[i] = el;
   };
-
-
   return (
-    <main id="trips" className="relative flex flex-col items-center justify-center mt-18 w-full h-auto md:h-screen md:mt-0 md:justify-start md:items-start bg-[#6ABAC4]" >
+    <main id="trips" className="relative flex flex-col items-center justify-center w-full h-auto md:h-screen md:mt-0 md:justify-start md:items-start bg-[#0fa1a4]" >
 
       <motion.div
         {...swipeHandlers}
         initial={{ opacity: 0 }}
         animate={isLoaded ? { opacity: 1 } : {}}
         transition={{ duration: 1.5, ease: 'easeOut' }}
-        className="relative w-full flex flex-col items-center justify-center overflow-hidden h-full"
+        className="relative w-full  flex flex-col items-center justify-center overflow-hidden h-full "
       >
-        <div className=" w-full h-auto  my-6">
-          <div className="grid grid-cols-3  md:grid-cols-7 flex justify-between items-center h-full">
-            {data.map((menu, index) => {
-              return (
+        <div className="w-full h-auto mb-6 mt-18 md:mt-10 z-50 bg-white border-y-1 border-blue-900">
+          <div className="max-w-7xl md:mx-auto">
+            <ul className="flex md:grid grid-cols-3 md:grid-cols-7 overflow-x-auto md:overflow-visible whitespace-nowrap scroll-smooth scrollbar-hide">
+              {data.map((menu, index) => (
                 <motion.li
                   layout
                   key={index}
-
-                  className={`${active === index ? 'bg-blue-900 text-white' : 'bg-white text-blue-800'} h-[50px] flex justify-center items-center cursor-pointer transition-all duration-100 ease-in-out
-                        hover:bg-blue-900 hover:text-white  text-center border border-blue-800 
-                        `}
+                  className={`${active === index
+                    ? 'text-blue-800 border-b-4 border-blue-900'
+                    : 'bg-white text-blue-800'
+                    } h-[50px] flex-shrink-0 flex justify-center items-center cursor-pointer px-4 transition-all duration-100 ease-in-out text-center`}
                   onClick={() => menuClickTours(index)}
                 >
-                  <a className={`${active == index && " text-white"}  hover:text-white`}>
-                    {menu.title}
-                  </a>
-
+                  <a className="text-blue-800">{menu.title}</a>
                 </motion.li>
-              );
-            })}
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="absolute z-40 top-1/2 left-4  -translate-y-1/2">
+        <div className="absolute z-40 top-1/2 left-1/6  -translate-y-1/2">
           <button onClick={prev} className="hidden md:inline-block bg-white cursor-pointer p-2 rounded-full shadow">
-            <ArrowLeft className='text-[#0905bc]' />
+            <ArrowLeft className='text-[#53dee1]' />
           </button>
         </div>
-        <div className="absolute z-40 top-1/2 right-4  -translate-y-1/2">
+        <div className="absolute z-40 top-1/2 right-1/6  -translate-y-1/2">
           <button onClick={next} className="hidden md:inline-block bg-white cursor-pointer p-2 rounded-full shadow">
-            <ArrowRight className='text-[#0905bc]' />
+            <ArrowRight className='text-[#53dee1]' />
           </button>
         </div>
 
@@ -116,11 +117,12 @@ export default function Tours({ data }: Props) {
             <AnimatePresence initial={false} mode="sync">
               {data[active].img.map((dados, i) => {
                 const distance = (i - index + total) % total;
-                const isVisible = distance <= 1 || distance >= total - 1;
+                const isVisible = distance <= 2 || distance >= total - 2;
                 const isActive = i === index;
-                const scale = isActive ? 1.0 : 0.6;
+                const scale = isActive ? 1 : 0.6;
                 const opacity = isVisible ? 1 : 0;
-                const offset = ((distance > total / 2 ? distance - total : distance) * 250);
+                const offset = ((distance > total / 2 ? distance - total : distance) * 245);
+                const borderWidth = isActive ? 2 : 0;
 
                 return (
                   <motion.div
@@ -130,7 +132,10 @@ export default function Tours({ data }: Props) {
                       x: isVisible ? offset : 0,
                       scale,
                       opacity,
+                      borderWidth,
+                      borderColor: '#53dee1',
                       zIndex: isActive ? 10 : 5,
+                      boxShadow: '2px 2px 30px 2px #53dee1'
                     }}
                     transition={{ duration: 0.5 }}
                   >
@@ -172,9 +177,10 @@ export default function Tours({ data }: Props) {
         </div>
 
         <div className="flex justify-center py-3">
-          <h1 className="text-5xl text-center">{data[active].title}</h1>
+          <h1 className="text-3xl text-center">{data[active].title}</h1>
         </div>
       </motion.div>
     </main>
   );
 }
+

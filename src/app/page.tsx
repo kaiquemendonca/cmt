@@ -49,11 +49,11 @@ export default function Home() {
 
   return (
 
-    <div className="w-full bg-[#6ABAC4] h-screen">
+    <div className="w-full bg-[#6ABAC4] h-screen ">
 
 
       < div className={`${inter.className}
-    text-white antialiased  w-full  flex flex-col bg-[#6ABAC4]`}>
+    text-white antialiased  w-full  flex flex-col bg-[#6ABAC4] snap-y snap-mandatory overflow-y-scroll `}>
 
         <Header ative={ative} setAtive={setAtive} />
         <Principal/>

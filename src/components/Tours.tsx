@@ -70,7 +70,7 @@ export default function Tours({ data }: Props) {
     videoRefs.current[i] = el;
   };
   return (
-    <main id="trips" className="relative flex flex-col items-center justify-center w-full h-auto md:h-screen md:mt-0 md:justify-start md:items-start bg-[#0fa1a4]" >
+    <main id="trips" className="relative flex flex-col items-center justify-center w-full h-auto md:h-screen md:mt-0 md:justify-start md:items-start bg-[#0fa1a4] snap-start" >
 
       <motion.div
         {...swipeHandlers}

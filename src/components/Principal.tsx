@@ -14,7 +14,7 @@ export const Principal = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: 'easeOut' }}
-            id="home" className="relative w-full h-screen flex items-end justify-between md:items-center md:w-7xl md:mx-auto ">
+            id="home" className="relative w-full h-screen flex items-end justify-between md:items-center md:w-7xl md:mx-auto snap-start">
 
             <div className="relative z-20 w-full h-full flex flex-col items-center justify-start md:w-3xl md:h-[700px]">
                 <div className="flex-2 flex flex-col justify-end items-center">

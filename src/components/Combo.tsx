@@ -13,7 +13,7 @@ export const Combo = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: 'easeOut' }}
-            id="combotrips" className="flex flex-col p-3 items-center  justify-center md:w-7xl md:mx-auto w-full relative min-h-screen bg-[#6ABAC4]">
+            id="combotrips" className="flex flex-col p-3 items-center  justify-center md:w-7xl md:mx-auto w-full relative min-h-screen bg-[#6ABAC4] snap-start">
 
             <div className="text-4xl md:text-5xl mt-18 md:m-10">
                 <h1 className="text-center">Promoção Imperdível</h1>
@@ -25,7 +25,7 @@ export const Combo = () => {
                     </div>
 
                     <div className="text-center text-yellow-400 font-extrabold text-3xl my-4">
-                        PROMOÇÃO 1
+                        PROMOÇÃO
                     </div>
                     <div className="text-center text-green-100 font-bold text-xl mb-4">
                         6 DESTINOS EM 4 DIAS
@@ -102,7 +102,7 @@ export const Combo = () => {
                     </div>
 
                     <div className="text-center text-yellow-400 font-extrabold text-3xl my-4">
-                        PROMOÇÃO 2
+                        PROMOÇÃO
                     </div>
                     <div className="text-center text-green-100 font-bold text-xl mb-4">
                         5 DESTINOS EM 3 DIAS
@@ -183,7 +183,7 @@ export const Combo = () => {
                                 <img
                                     src={dados.src}
                     
-                                    className="rounded-lg object-cover w-[400px]"
+                                    className="rounded-lg object-cover w-[400px] h-[400px]"
                                 />
                             </div>
 
@@ -200,7 +200,7 @@ export const Combo = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.8 }}
                                 className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#53dee1] font-thin transition easi-in-out bg-[#53dee1] text-2xl p-2 rounded-3xl text-white w-full">
-                                <a href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank">Quero esse Passeio</a>
+                                <a href={dados.link} target="_blank">Quero esse Passeio</a>
 
                             </motion.button>
                         </div>
@@ -222,14 +222,24 @@ const toursAdd = [
         valor: "130,00 P/PESSOA",
         descricao: "Passeio de Lancha compartilhada com 03 paradas: Piscina Natural, Caminho de Moisés e Praia de Antunes. Lanchas com capacidade máxima para até 08 passageiros. É permitido levar bébidas e alimentos.",
         duracao: "2h30min",
-        src: "/assets/lancha-espresso-maragogi.jpeg"
+        src: "/assets/lancha-espresso-maragogi.jpeg",
+        link:"https://wa.me/5582991432144?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20lancha%20compartilhada%20em%20Maragogi"
     },
     {
         titulo: "JANGADA EM MILAGRES",
         valor: "100,00 P/PESSOA",
         descricao: "Piscinas naturais de milagres 1• parada – banho com os peixinhosBanco de areia 2• parada – Fotos na boia e redePoço fundo 3• Terceira e última parada – dar aquele mergulho de cima da jangada que não pode faltar",
         duracao: "2h30min",
-        src: "/assets/milagres/IMG-20250401-WA0019.jpg"
+        src: "/assets/milagres/IMG-20250401-WA0019.jpg",
+        link:"https://wa.me/5582991432144?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20jangada%20em%20Milagres"
+    },
+    {
+        titulo: "JETSKI MARAGOGI",
+        valor: "300,00 até 2 PESSOAS",
+        descricao: "Aluguel de Jet Ski para até 2 pessoas. 30 minutos de locação R$300. Para conduzir o jet você tem seguir ao pé da letra as recomendações de nossos guias. Caso você não tenha nhuma experiência, o passeio será guiado.",
+        duracao: "30min",
+        src: "/assets/jetski.png",
+        link:"https://wa.me/5582991432144?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20JetSki%20em%20Maragogi"
     },
 ]
 

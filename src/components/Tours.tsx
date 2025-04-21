@@ -70,7 +70,7 @@ export default function Tours({ data }: Props) {
     videoRefs.current[i] = el;
   };
   return (
-    <main id="trips" className="relative flex flex-col items-center justify-center w-full h-auto md:h-screen md:mt-0 md:justify-start md:items-start bg-[#0fa1a4] snap-start" >
+    <main id="trips" className="relative flex flex-col items-center justify-center w-full h-auto md:h-screen md:mt-0 md:justify-start md:items-start bg-[#0fa1a4] snap-start " >
 
       <motion.div
         {...swipeHandlers}
@@ -81,7 +81,7 @@ export default function Tours({ data }: Props) {
       >
         <div className="w-full h-auto mb-6 mt-18 md:mt-10 z-50 bg-white border-y-1 border-blue-900">
           <div className="max-w-7xl md:mx-auto">
-            <ul className="flex md:grid grid-cols-3 md:grid-cols-7 overflow-x-auto md:overflow-visible whitespace-nowrap scroll-smooth scrollbar-hide">
+            <ul className="flex md:grid grid-cols-3 md:grid-cols-7 overflow-x-auto md:overflow-visible whitespace-nowrap scroll-smooth scrollbar-hide ">
               {data.map((menu, index) => (
                 <motion.li
                   layout
@@ -111,10 +111,11 @@ export default function Tours({ data }: Props) {
 
         <div className="relative w-[90vw] max-w-[1000px] aspect-[9/12] h-[70%] overflow-visible rounded-2xl">
           <div
+          
             ref={containerRef}
             className="relative flex items-center justify-center w-full h-full"
           >
-            <AnimatePresence initial={false} mode="sync">
+            <AnimatePresence  initial={false} mode="sync">
               {data[active].img.map((dados, i) => {
                 const distance = (i - index + total) % total;
                 const isVisible = distance <= 2 || distance >= total - 2;
@@ -126,6 +127,7 @@ export default function Tours({ data }: Props) {
 
                 return (
                   <motion.div
+                  
                     key={i}
                     className="absolute w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[40%] h-full rounded-xl overflow-hidden shadow-md"
                     animate={{

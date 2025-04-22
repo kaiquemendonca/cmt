@@ -79,7 +79,10 @@ export default function Tours({ data }: Props) {
         transition={{ duration: 1.5, ease: 'easeOut' }}
         className="relative w-full  flex flex-col items-center justify-center overflow-hidden h-full "
       >
-        <div className="w-full h-auto mb-6 mt-18 md:mt-10 z-50 bg-white border-y-1 border-blue-900">
+        <div className='h-20 flex items-center justify-center text-4xl'>
+          <h1>Passeios</h1>
+        </div>
+        <div className="w-full h-auto mb-6  z-50 bg-white border-y-1 border-blue-900">
           <div className="max-w-7xl md:mx-auto">
             <ul className="flex md:grid grid-cols-3 md:grid-cols-7 overflow-x-auto md:overflow-visible whitespace-nowrap scroll-smooth scrollbar-hide ">
               {data.map((menu, index) => (

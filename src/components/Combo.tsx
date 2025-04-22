@@ -29,7 +29,7 @@ export const Combo = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.8 }}
                             className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#53dee1] font-thin transition easi-in-out bg-[#53dee1] text-2xl p-2 rounded-3xl text-white w-full ">
-                            <a href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank">Quero esse combo</a>
+                            <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%206%20praias%20em%204%20dias." target="_blank">Quero esse combo</a>
 
                         </motion.button>
                     </div>
@@ -45,7 +45,7 @@ export const Combo = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.8 }}
                             className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#53dee1] font-thin transition easi-in-out bg-[#53dee1] text-2xl p-2 rounded-3xl text-white w-full ">
-                            <a href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank">Quero esse combo</a>
+                            <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%205%20praias%20em%203%20dias." target="_blank">Quero esse combo</a>
 
                         </motion.button>
                     </div>

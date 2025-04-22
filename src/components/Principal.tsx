@@ -18,9 +18,9 @@ export const Principal = () => {
             <div >
                 <img src="/assets/COMBODE3DIAS.png" />
             </div>
-            <div className="pl-5 my-7 ">
+            <div className="px-5 my-7 ">
                 <h1 className="text-2xl text-blue-800 mb-7">POR QUE ESCOLHER A <br /> <span className="font-bold font-[Pacifico] text-[#fea13a] text-3xl">César Maceió Turismo?</span></h1>
-                <p className="text-black text-justify">Vamos te levar nos melhores pontos <br />turísticos, fazendo o máximo para tornar <br />suas férias inesquecíveis com todo auxílio <br />dos nossos guias.
+                <p className="text-black font-normal text-justify">Vamos te levar nos melhores pontos <br />turísticos, fazendo o máximo para tornar <br />suas férias inesquecíveis com todo auxílio <br />dos nossos guias.
 
                     <br /><br />Temos veículos novos com total qualidade, conforto e guias credenciados.
 

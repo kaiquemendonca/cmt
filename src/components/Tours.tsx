@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect, RefCallback } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useSwipeable } from 'react-swipeable';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, EffectFade } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+
 
 type PasseioDetalhado = {
   titulo: string;
@@ -26,166 +27,72 @@ type Props = {
 
 
 export default function Tours({ data }: Props) {
-  const [active, setActive] = useState(0);
-  const [index, setIndex] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const containerRef = useRef(null);
-  const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
-  const total = data[active].img.length;
 
-  const next = () => setIndex((prev) => (prev + 1) % total);
-  const prev = () => setIndex((prev) => (prev - 1 + total) % total);
-
-
-  const menuClickTours = (index: number) => {
-    setActive(index);
-  }
-
-  useEffect(() => {
-    videoRefs.current.forEach((video, i) => {
-      if (video) {
-        if (i === index) {
-          video.play().catch(() => { });
-        } else {
-          video.pause();
-          video.currentTime = 0;
-        }
-      }
-    });
-  }, [index]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: next,
-    onSwipedRight: prev,
-    trackMouse: true,
-    preventScrollOnSwipe: true,
-  });
-
-  const setVideoRef = (i: number): RefCallback<HTMLVideoElement> => (el) => {
-    videoRefs.current[i] = el;
-  };
   return (
-    <main id="trips" className="relative flex flex-col items-center justify-center w-full h-auto md:h-screen md:mt-0 md:justify-start md:items-start bg-[#0fa1a4] snap-start " >
-
-      <motion.div
-        {...swipeHandlers}
-        initial={{ opacity: 0 }}
-        animate={isLoaded ? { opacity: 1 } : {}}
-        transition={{ duration: 1.5, ease: 'easeOut' }}
-        className="relative w-full  flex flex-col items-center justify-center overflow-hidden h-full "
-      >
-        <div className='h-20 flex items-center justify-center text-4xl'>
-          <h1>Passeios</h1>
-        </div>
-        <div className="w-full h-auto mb-6  z-50 bg-white border-y-1 border-blue-900">
-          <div className="max-w-7xl md:mx-auto">
-            <ul className="flex md:grid grid-cols-3 md:grid-cols-7 overflow-x-auto md:overflow-visible whitespace-nowrap scroll-smooth scrollbar-hide ">
-              {data.map((menu, index) => (
-                <motion.li
-                  layout
-                  key={index}
-                  className={`${active === index
-                    ? 'text-blue-800 border-b-4 border-blue-900'
-                    : 'bg-white text-blue-800'
-                    } h-[50px] flex-shrink-0 flex justify-center items-center cursor-pointer px-4 transition-all duration-100 ease-in-out text-center`}
-                  onClick={() => menuClickTours(index)}
-                >
-                  <a className="text-blue-800">{menu.title}</a>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="absolute z-40 top-1/2 left-1/6  -translate-y-1/2">
-          <button onClick={prev} className="hidden md:inline-block bg-white cursor-pointer p-2 rounded-full shadow">
-            <ArrowLeft className='text-[#53dee1]' />
-          </button>
-        </div>
-        <div className="absolute z-40 top-1/2 right-1/6  -translate-y-1/2">
-          <button onClick={next} className="hidden md:inline-block bg-white cursor-pointer p-2 rounded-full shadow">
-            <ArrowRight className='text-[#53dee1]' />
-          </button>
-        </div>
-
-        <div className="relative w-[90vw] max-w-[1000px] aspect-[9/12] h-[70%] overflow-visible rounded-2xl">
-          <div
-          
-            ref={containerRef}
-            className="relative flex items-center justify-center w-full h-full"
+    <div className='h-[80vh] md:h-[110vh] ' id="trips">
+      <section className="relative h-screen w-full">
+        {/* Fundo com imagem */}
+        <img
+          src="/assets/praia-de-maragogi.png"
+          alt="Fundo Alagoas"
+          className="absolute inset-0 w-full h-[80%]  md:h-full object-cover p-5 rounded-[50px]"
+        />
+        {/* Conteúdo */}
+        <div className="relative z-10 flex flex-col items-start p-10 md:p-30 justify-start h-[50%] md:h-[70%] text-white ">
+          <h3 className='text-xl md:text-3xl max-w-4xl mb-6'>PASSEIOS</h3>
+          <h1 className="text-3xl md:text-7xl font-bold max-w-4xl mb-6">
+            PLANEJAMENTO <br />
+            COMPLETO DO<br />
+            SEU PASSEIO
+          </h1>
+          <a
+            href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20quero%20fazer%20planejamento%20de%20passeios."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-black px-6 py-2 rounded-full text-lg shadow-lg transition flex items-center justify-center"
           >
-            <AnimatePresence  initial={false} mode="sync">
-              {data[active].img.map((dados, i) => {
-                const distance = (i - index + total) % total;
-                const isVisible = distance <= 2 || distance >= total - 2;
-                const isActive = i === index;
-                const scale = isActive ? 1 : 0.6;
-                const opacity = isVisible ? 1 : 0;
-                const offset = ((distance > total / 2 ? distance - total : distance) * 245);
-                const borderWidth = isActive ? 2 : 0;
-
-                return (
-                  <motion.div
-                  
-                    key={i}
-                    className="absolute w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[40%] h-full rounded-xl overflow-hidden shadow-md"
-                    animate={{
-                      x: isVisible ? offset : 0,
-                      scale,
-                      opacity,
-                      borderWidth,
-                      borderColor: '#53dee1',
-                      zIndex: isActive ? 10 : 5,
-                      boxShadow: '2px 2px 30px 2px #53dee1'
-                    }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {dados.endsWith('.mp4') ? (
-                      <video
-                        muted
-                        loop
-                        autoPlay
-                        className="object-cover w-full h-full"
-                        src={dados}
-                        ref={setVideoRef(i)}
-                      >
-                      </video>
-                    ) : (
-                      <img
-                        src={dados}
-                        alt={`carousel-${i}`}
-                        className="object-cover w-full h-full"
-                      />
-                    )}
-
-
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
-          </div>
+            Entenda como funciona <img src='/assets/icones/seta.svg' className='ml-2' />
+          </a>
         </div>
+        <div className="bg-white py-10 overflow-hidden">
+          <Swiper
+            modules={[Autoplay]}
+            loop={true}
+            speed={5000}
+            autoplay={{
+              delay: 1,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: false,
+            }}
+            slidesPerView={7}
+            spaceBetween={30}
+            grabCursor={true}
+            breakpoints={{
+              320: { slidesPerView: 2 },
+              640: { slidesPerView: 3 },
+              1024: { slidesPerView: 6 },
+            }}
+          >
+            {data.map((img, i) => (
+              <SwiperSlide key={i}>
+                <div className="w-40 md:w-60 h-80 flex justify-center">
 
-        <div className="flex gap-2 mt-6">
-          {data[active].img.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={`w-3 h-3 rounded-full transition-colors duration-300 ${index === i ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
-            ></button>
-          ))}
-        </div>
+                  <img
+                    src={img.img[1]}
+                    alt={`Lugar ${i + 1}`}
+                    className="absolute w-60 h-60 md:h-80 object-cover shadow-md  transition"
 
-        <div className="flex justify-center py-3">
-          <h1 className="text-3xl text-center">{data[active].title}</h1>
+                  />
+                  <h1 className='z-99 uppercase p-2 text-xl md:text-2xl text-center text-gray-100'>{img.title}</h1>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-      </motion.div>
-    </main>
+      </section>
+    </div>
+
+
   );
 }
 

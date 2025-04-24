@@ -9,6 +9,7 @@ import { Principal } from "@/components/Principal";
 import { Combo } from "@/components/Combo";
 import Tours from "@/components/Tours";
 import { motion } from "motion/react";
+import PhotoCarousel from "@/components/PhotoCarousel";
 
 
 const inter = Righteous({
@@ -53,12 +54,13 @@ export default function Home() {
 
 
       < div className={`${inter.className}
-    text-white antialiased  w-full  flex flex-col bg-[#6ABAC4] snap-y snap-mandatory overflow-y-scroll `}>
+    text-white antialiased  w-full  flex flex-col snap-y snap-mandatory overflow-y-scroll `}>
 
         <Header ative={ative} setAtive={setAtive} />
         <Principal/>
         <Tours data={sliderData} />
         <Combo />
+        <PhotoCarousel data={sliderData} />
         <Contacts />
         <footer className="md:hidden fixed z-99 bottom-3 right-3 flex justify-end">
           <div >
@@ -89,7 +91,7 @@ const sliderData = [
   },
   {
     id: 1,
-    img: ["/assets/maragogi/IMG-20250401-WA0002.jpg", "/assets/maragogi/IMG-20250401-WA0013.jpg", "/assets/maragogi/IMG-20250401-WA0015.jpg", "/assets/maragogi/IMG-20250401-WA0020.jpg", "/assets/maragogi/IMG-20250401-WA0021.jpg", "/assets/maragogi/IMG-20250401-WA0023.jpg", "/assets/maragogi/IMG-20250401-WA0037.jpg", "/assets/maragogi/IMG-20250401-WA0039.jpg", "/assets/maragogi/IMG-20250401-WA0040.jpg", "/assets/maragogi/IMG-20250401-WA0044.jpg", "/assets/maragogi/IMG-20250401-WA0046.jpg"],
+    img: ["/assets/maragogi/IMG-20250401-WA0002.jpg", "/assets/maragogi/IMG-20250401-WA0046.jpg", "/assets/maragogi/IMG-20250401-WA0013.jpg", "/assets/maragogi/IMG-20250401-WA0015.jpg", "/assets/maragogi/IMG-20250401-WA0020.jpg", "/assets/maragogi/IMG-20250401-WA0021.jpg", "/assets/maragogi/IMG-20250401-WA0023.jpg", "/assets/maragogi/IMG-20250401-WA0037.jpg", "/assets/maragogi/IMG-20250401-WA0039.jpg", "/assets/maragogi/IMG-20250401-WA0040.jpg", "/assets/maragogi/IMG-20250401-WA0044.jpg"],
     location: "Maragogi",
     description: "Maragogi está situada bem no coração da Costa dos Corais , a maior barreira de corais do Brasil, que também é uma belíssima área de preservação ambiental. A cidade de Maragogi é famosa por suas praias de mar realmente cristalino, águas quentes e piscinas naturais paradisíacas , por isso o apelido de caribe brasileiro.",
     title: "Maragogi",
@@ -111,7 +113,7 @@ const sliderData = [
   },
   {
     id: 2,
-    img: ["/assets/milagres/IMG-20250401-WA0014.jpg", "/assets/milagres/IMG-20250401-WA0044.jpg", "/assets/milagres/IMG-20250401-WA0046.jpg", "/assets/milagres/IMG-20250401-WA0047.jpg", "/assets/milagres/IMG-20250401-WA0051.jpg", "/assets/milagres/IMG-20250401-WA0019.jpg"],
+    img: ["/assets/milagres/IMG-20250401-WA0014.jpg","/assets/milagres/IMG-20250401-WA0043.jpg", "/assets/milagres/IMG-20250401-WA0044.jpg", "/assets/milagres/IMG-20250401-WA0046.jpg", "/assets/milagres/IMG-20250401-WA0047.jpg", "/assets/milagres/IMG-20250401-WA0051.jpg", "/assets/milagres/IMG-20250401-WA0019.jpg"],
     location: "São Miguel dos Milagres",
     description: "A Praia de São Miguel dos Milagres é uma praia em Alagoas, Brasil, com águas calmas e mornas, e piscinas naturais. É considerada uma das melhores praias do Brasil.",
     title: "Milagres",
@@ -175,11 +177,43 @@ const sliderData = [
   },
   {
     id: 6,
-    img: ["/assets/foz/IMG-20250410-WA0082.jpg", "/assets/foz/IMG-20250410-WA0083.jpg", "/assets/foz/IMG-20250410-WA0084.jpg", "/assets/foz/IMG-20250410-WA0085.jpg", "/assets/foz/IMG-20250410-WA0086.jpg", "/assets/foz/IMG-20250410-WA0087.jpg", "/assets/foz/IMG-20250410-WA0088.jpg"],
+    img: ["/assets/foz/IMG-20250410-WA0082.jpg", "/assets/foz/IMG-20250410-WA0084.jpg" ,"/assets/foz/IMG-20250410-WA0083.jpg", "/assets/foz/IMG-20250410-WA0085.jpg", "/assets/foz/IMG-20250410-WA0086.jpg", "/assets/foz/IMG-20250410-WA0087.jpg", "/assets/foz/IMG-20250410-WA0088.jpg"],
     location: "Foz do Rio São Francisco",
     description: "",
     title: "Foz do Rio São Francisco",
     valor: "450,00R$",
+    passeios: [
+      {
+        titulo: "",
+        valor: "",
+        descricao: "",
+        duracao: ""
+      },
+    ]
+  },
+  {
+    id: 7,
+    img: ["/assets/canions/IMG-20250401-WA0009.jpg","/assets/canions/IMG-20250401-WA0027.jpg","/assets/canions/IMG-20250401-WA0025.jpg"],
+    location: "Cânions do Rio São Francisco",
+    description: "",
+    title: "Cânions do Rio São Francisco",
+    valor: "1000,00R$",
+    passeios: [
+      {
+        titulo: "",
+        valor: "",
+        descricao: "",
+        duracao: ""
+      },
+    ]
+  },
+  {
+    id: 8,
+    img: ["/assets/dunas/dunas.jpg","/assets/dunas/dunas.jpg"],
+    location: "Dunas de Marapé",
+    description: "",
+    title: "Dunas de Marapé",
+    valor: "300,00R$",
     passeios: [
       {
         titulo: "",

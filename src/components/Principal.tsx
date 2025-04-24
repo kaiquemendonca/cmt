@@ -41,7 +41,7 @@ export const Principal = () => {
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.8 }}
-                    className="mt-5 mx-5 cursor-pointer border border-white border-2 shadow-[2px_2px_30px_2px_#53dee1] font-thin transition easi-in-out bg-[#53dee1] text-2xl p-2 px-6 rounded-4xl text-white flex items-center justify-center">
+                    className="mt-5 md:mx-5 cursor-pointer border border-white border-2 shadow-[2px_2px_30px_2px_#53dee1] font-thin transition easi-in-out bg-[#53dee1] text-2xl p-2 px-6 rounded-4xl text-white flex items-center justify-center">
                     <img className="mr-1" src="/assets/insta2.svg"/>
                     <a className="tracking-widest" href="https://www.instagram.com/cesarmaceiotur/" target="_blank" >INSTAGRAM</a>
 

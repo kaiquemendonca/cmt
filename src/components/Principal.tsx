@@ -14,7 +14,7 @@ export const Principal = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: 'easeOut' }}
-            id="home" className="relative w-full flex flex-col items-star  py-18 justify-between md:items-start md:w-7xl md:mx-auto snap-start bg-white">
+            id="home" className="relative w-full flex flex-col items-star  justify-between md:items-start md:w-7xl md:mx-auto snap-start bg-white">
             <div className="md:hidden">
                 <img src="/assets/COMBODE3DIAS.png" />
             </div>

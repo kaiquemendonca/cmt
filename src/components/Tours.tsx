@@ -28,8 +28,9 @@ type Props = {
 
 export default function Tours({ data }: Props) {
 
+
   return (
-    <div className='h-[80vh] md:h-[110vh] ' id="trips">
+    <div className='h-[90vh] md:h-[110vh] ' id="trips">
       <section className="relative h-screen w-full">
         {/* Fundo com imagem */}
         <img
@@ -75,15 +76,18 @@ export default function Tours({ data }: Props) {
           >
             {data.map((img, i) => (
               <SwiperSlide key={i}>
-                <div className="w-40 md:w-60 h-80 flex justify-center">
+                <div className="w-40 md:w-60 h-80 flex justify-center items-end">
 
                   <img
                     src={img.img[1]}
                     alt={`Lugar ${i + 1}`}
-                    className="absolute w-60 h-60 md:h-80 object-cover shadow-md  transition"
+                    className="absolute w-60 h-60 rounded-xl md:h-80 object-cover shadow-xl  transition"
 
                   />
-                  <h1 className='z-99 uppercase p-2 text-xl md:text-2xl text-center text-gray-100'>{img.title}</h1>
+                  <div className='w-60 bg-gray-600/30 z-99 rounded-b-xl'>
+                    <h1 className=' z-99 uppercase p-2 text-xl md:text-2xl text-center text-gray-100'>{img.title}</h1>
+                  </div>
+
                 </div>
               </SwiperSlide>
             ))}

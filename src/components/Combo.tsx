@@ -16,7 +16,7 @@ export const Combo = () => {
             id="combotrips" className="flex flex-col p-3 items-center  justify-center md:w-7xl md:mx-auto w-full relative min-h-screen snap-start ">
 
             <div className="text-4xl md:text-5xl mt-18 md:m-10 text-blue-400">
-                <h1 className="text-center">Promoção Imperdível</h1>
+                <h2 className="text-center text-3xl font-bold mb-6 text-gray-800 uppercase">Promoções Imperdíveis</h2>
             </div>
             <div className="flex flex-col md:flex-row grid grid-cols-1 md:grid-cols-3 gap-3 items-center justify-between w-full">
 

@@ -30,7 +30,7 @@ export default function PhotoCarousel({ data }: Props) {
         ["Maragogi", "Milagres", "Ipioca"].includes(item.title)
     ).flatMap((item) => item.img)
     const sul = data.filter(item =>
-        ["Gunga", "Francês", "Barra de São Miguel", "Foz do Rio São Francisco", "Cânions do Rio São Francisco", "Dunas de Marapé"].includes(item.title)
+        ["Gunga", "Francês", "Barra de São Miguel", "Foz do Rio São Francisco", "Cânions do Rio São Francisco"].includes(item.title)
     ).flatMap((item) => item.img)
 
     return (
@@ -49,12 +49,13 @@ export default function PhotoCarousel({ data }: Props) {
                     delay: 0,
                     disableOnInteraction: false,
                 }}
-                speed={4000}
+                speed={3000}
                 grabCursor={true}
+                spaceBetween={10}
                 breakpoints={{
                     320: { slidesPerView: 2 },
                     640: { slidesPerView: 3 },
-                    1024: { slidesPerView: 5 },
+                    1024: { slidesPerView: 7 },
                 }}
             >
                 {norte.map((imgUrl, idx) => (
@@ -72,19 +73,22 @@ export default function PhotoCarousel({ data }: Props) {
             <Swiper
                 modules={[Autoplay]}
                 slidesPerView={7}
-                spaceBetween={30}
+                freeMode={true}
+                spaceBetween={10}
                 loop={true}
+                grabCursor={true}
                 autoplay={{
-                    delay: 0,
+                    delay: 1,
                     disableOnInteraction: false,
                     reverseDirection: true,
+                    pauseOnMouseEnter: false
+                    
                 }}
-                speed={4000}
-                grabCursor={true}
+                speed={3000}
                 breakpoints={{
                     320: { slidesPerView: 2 },
                     640: { slidesPerView: 3 },
-                    1024: { slidesPerView: 5 },
+                    1024: { slidesPerView: 7 },
                 }}
             >
                 {sul.map((src, idx) => (

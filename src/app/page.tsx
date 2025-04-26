@@ -10,6 +10,7 @@ import { Combo } from "@/components/Combo";
 import Tours from "@/components/Tours";
 import { motion } from "motion/react";
 import PhotoCarousel from "@/components/PhotoCarousel";
+import { Services } from "@/components/Services";
 
 
 const inter = Righteous({

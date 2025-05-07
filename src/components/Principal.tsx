@@ -20,7 +20,7 @@ export const Principal = () => {
                 <div className="absolute inset-0 bg-black/40"></div>
 
                 {/* Content */}
-                <div className="relative z-10 px-4 py-8 text-white flex flex-col items-center">
+                <div className="relative z-10 px-4 py-1 text-white flex flex-col items-center">
                     {/* Título */}
                     <div className="text-center mb-3 md:mb-6">
                         <h1 className="text-3xl md:text-7xl font-black text-blue-400 drop-shadow-md">COMBO</h1>

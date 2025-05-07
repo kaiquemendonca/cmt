@@ -117,7 +117,7 @@ export const Principal = () => {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.8 }}
-                        className="mt-10 cursor-pointer border border-white border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-4xl p-2 px-12 rounded-4xl text-white flex items-center justify-center">
+                        className="mt-5 md:mt-10 cursor-pointer border border-white border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-4xl p-2 px-12 rounded-4xl text-white flex items-center justify-center">
 
                         <a className="tracking-widest" href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank">Saiba mais</a>
                         <img className="ml-2" src="/assets/wapp.svg" />

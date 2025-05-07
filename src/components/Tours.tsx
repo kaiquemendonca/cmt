@@ -1,7 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade } from 'swiper/modules'
+import { motion } from "framer-motion";
 import 'swiper/css'
 import 'swiper/css/effect-fade'
+import { useEffect, useRef, useState } from 'react'
+
+
 
 
 type PasseioDetalhado = {
@@ -29,8 +33,10 @@ type Props = {
 export default function Tours({ data }: Props) {
 
 
+
   return (
-    <div className='h-[90vh] md:h-[110vh] ' id="trips">
+    <motion.div
+      className='h-[90vh] md:h-[110vh] bg-white ' id="trips">
       <section className="relative h-screen w-full">
         {/* Fundo com imagem */}
         <img
@@ -39,22 +45,39 @@ export default function Tours({ data }: Props) {
           className="absolute inset-0 w-full h-[80%]  md:h-full object-cover p-5 rounded-[50px]"
         />
         {/* Conteúdo */}
-        <div className="relative z-10 flex flex-col items-start p-10 md:p-30 justify-start h-[50%] md:h-[70%] text-white ">
-          <h3 className='text-xl md:text-3xl max-w-4xl mb-6'>PASSEIOS</h3>
-          <h1 className="text-3xl md:text-7xl font-bold max-w-4xl mb-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1, }}
+          viewport={{ amount: 0.3 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          className="relative z-10 flex flex-col items-start p-10 md:p-30 justify-start h-[50%] md:h-[70%] text-white ">
+          <motion.h3 initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1, }}
+            viewport={{ amount: 1.0 }}
+            transition={{ duration: 2, ease: 'easeOut' }}
+            className='text-xl md:text-3xl max-w-4xl mb-6'>PASSEIOS</motion.h3>
+          <motion.h1 initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1, }}
+            viewport={{ amount: 1 }}
+            transition={{ duration: 1.0, ease: 'easeOut' }}
+            className="text-3xl md:text-7xl font-bold max-w-4xl mb-6">
             PLANEJAMENTO <br />
             COMPLETO DO<br />
             SEU PASSEIO
-          </h1>
-          <a
+          </motion.h1>
+          <motion.a
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1, }}
+            viewport={{ amount: 1 }}
+            transition={{ duration: 3, ease: 'easeOut' }}
             href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20quero%20fazer%20planejamento%20de%20passeios."
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-black px-6 py-2 rounded-full text-lg shadow-lg transition flex items-center justify-center"
           >
             Entenda como funciona <img src='/assets/icones/seta.svg' className='ml-2' />
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
         <div className="bg-white py-10 overflow-hidden">
           <Swiper
             modules={[Autoplay]}
@@ -76,7 +99,7 @@ export default function Tours({ data }: Props) {
           >
             {data.map((img, i) => (
               <SwiperSlide key={i}>
-                <div className="w-40 md:w-60 h-80 flex justify-center items-end">
+                <div className="w-48 md:w-60 h-80 flex justify-center items-end">
 
                   <img
                     src={img.img[1]}
@@ -84,7 +107,7 @@ export default function Tours({ data }: Props) {
                     className="absolute w-60 h-60 rounded-xl md:h-80 object-cover shadow-xl  transition"
 
                   />
-                  <div className='w-60 bg-gray-600/30 z-99 rounded-b-xl'>
+                  <div className='w-full bg-gray-600/30 z-99 rounded-b-xl'>
                     <h1 className=' z-99 uppercase p-2 text-xl md:text-2xl text-center text-gray-100'>{img.title}</h1>
                   </div>
 
@@ -94,7 +117,7 @@ export default function Tours({ data }: Props) {
           </Swiper>
         </div>
       </section>
-    </div>
+    </motion.div>
 
 
   );

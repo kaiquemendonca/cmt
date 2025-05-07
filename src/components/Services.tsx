@@ -50,7 +50,7 @@ export const Services = () => {
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <div className="absolute bg-gray-800 rounded-xl w-[500px] h-[200px] transition">
+                            <div className="absolute bg-gray-800 rounded-xl w-[500px] h-[200px] ">
                                 <h3 className="text-gray-100 text-2xl">Passeios de Buggy</h3>
                             </div>
                         </SwiperSlide>

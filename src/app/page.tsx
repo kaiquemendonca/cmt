@@ -59,7 +59,7 @@ export default function Home() {
 
         <Header ative={ative} setAtive={setAtive} />
         <Principal/>
-        <Tours data={sliderData} />
+        <Tours data={sliderData}/>
         <Combo />
         <PhotoCarousel data={sliderData} />
         <Contacts />

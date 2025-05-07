@@ -6,8 +6,9 @@ export const Contacts = () => {
 
     return (
         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, }}
+            whileInView={{ opacity: 1, }}
+            viewport={{ amount: 0.4 }}
             transition={{ duration: 1.5, ease: 'easeOut' }}
             id="contacts" className="w-full flex items-center justify-center bg-blue-800  snap-start  ">
             <div className="flex flex-col h-full items-center justify-center w-full">
@@ -16,7 +17,7 @@ export const Contacts = () => {
                         <img src="/assets/logo-cmt.png" className="object-cover w-full" />
                     </div>
                     <div className="flex ">
-                        <a href="https://api.whatsapp.com/send?l=pt&phone=5582991432144"  target="_blank" className="mx-3">+55 (82) 99143-2144</a><img src="/assets/icones/whatss.svg" />
+                        <a href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank" className="mx-3">+55 (82) 99143-2144</a><img src="/assets/icones/whatss.svg" />
                     </div>
                     <div className="flex ">
                         <a href="https://www.instagram.com/cesarmaceiotur/" target="_blank" className="mx-3">@cesarmaceiotur</a><img src="/assets/insta.svg" />

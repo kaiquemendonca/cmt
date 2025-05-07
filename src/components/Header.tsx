@@ -13,6 +13,17 @@ function Header({ ative, setAtive }: HeaderProps) {
 
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => setIsOpen(!isOpen);
+    const [showHeader, setShowHeader] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScroll = window.scrollY;
+            setShowHeader(currentScroll > 50); 
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         e.preventDefault();
@@ -28,11 +39,16 @@ function Header({ ative, setAtive }: HeaderProps) {
 
     return (
 
-        <div className="w-full fixed top-0 z-50  flex items-start justify-between text-xs font-medium uppercase ">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: showHeader ? 1 : 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="w-full fixed top-0 z-50 flex items-start justify-between text-xs font-medium uppercase"
+        >
 
             <motion.button
                 className="relative h-15 flex flex-col backdrop-blur-sm justify-center items-start px-8  gap-1 z-50 md:hidden bg-[#6ABAC4]/50 w-40 rounded-br-3xl"
-                animate={{ background: isOpen ? "#6ABAC400" : "#6ABAC450", filter: isOpen ? "backdrop-filter(0px)" : "backdrop-filter(8px)"}}
+                animate={{ background: isOpen ? "#6ABAC400" : "#6ABAC450", filter: isOpen ? "backdrop-filter(0px)" : "backdrop-filter(8px)" }}
                 onClick={toggleMenu}
                 aria-label="Menu"
             >
@@ -158,7 +174,7 @@ function Header({ ative, setAtive }: HeaderProps) {
                 </motion.div>
 
             </AnimatePresence>
-        </div >
+        </motion.div >
     );
 }
 

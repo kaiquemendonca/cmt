@@ -15,24 +15,34 @@ export const Combo = () => {
             transition={{ duration: 1.5, ease: 'easeOut' }}
             id="combotrips" className="flex flex-col p-3 items-center  justify-center md:w-7xl md:mx-auto w-full relative min-h-screen snap-start ">
 
-            <div className="text-4xl md:text-5xl mt-18 md:m-10 text-blue-400">
+            <motion.div className="text-4xl md:text-5xl mt-18 md:m-10 text-blue-400">
                 <h2 className="text-center text-3xl font-bold mb-6 text-gray-800 uppercase">Promoções Imperdíveis</h2>
-            </div>
+            </motion.div>
             <div className="flex flex-col md:flex-row grid grid-cols-1 md:grid-cols-3 gap-3 items-center justify-between w-full">
 
 
                 {toursAdd.map((dados, index) => (
                     <div key={index} className="bg-linear-to-b from-sky-300 to-blue-600 text-white p-2 md:max-w-screen-lg mx-auto rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#53dee1] m-5 p-3">
-                        <div className="bg-red-600 text-green-300 font-bold p-2 text-center text-xl rounded-t-xl">
+                        <motion.div 
+                         initial={{ opacity: 0, y: 50 }}
+                         whileInView={{ opacity: 1, y: 0 }}
+                         viewport={{ once: true, amount: 0.2 }}
+                         transition={{ duration: 0.6, delay: index * 1.0, ease: 'easeOut' }}
+                        className="bg-red-600 text-green-300 font-bold p-2 text-center text-xl rounded-t-xl">
                             R$: {dados.valor}
-                        </div>
+                        </motion.div>
 
                         <div className="text-center text-yellow-400 font-extrabold text-3xl my-4">
                             PROMOÇÃO
                         </div>
-                        <div className="text-center text-green-100 font-bold text-xl mb-4">
+                        <motion.div 
+                         initial={{ opacity: 0, y: 50 }}
+                         whileInView={{ opacity: 1, y: 0 }}
+                         viewport={{ once: true, amount: 0.2 }}
+                         transition={{ duration: 0.6, delay: index * 0.5, ease: 'easeOut' }}
+                        className="text-center text-green-100 font-bold text-xl mb-4">
                             {dados.titulo}
-                        </div>
+                        </motion.div>
 
                         <div className="flex">
                             <div className="relative">
@@ -44,18 +54,23 @@ export const Combo = () => {
                             </div>
 
                         </div>
-                        <div>
+                        <motion.div
+                         initial={{ opacity: 0, y: 50 }}
+                         whileInView={{ opacity: 1, y: 0 }}
+                         viewport={{  amount: 0.2 }}
+                         transition={{ duration: 0.6, delay: index * 0.5, ease: 'easeOut' }}
+                        >
                             <p className="text-justify">
                                 {dados.descricao}
                             </p>
-                        </div>
+                        </motion.div>
 
                         <div className="flex items-center justify-center mt-4">
                             <motion.button
 
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.8 }}
-                                className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#53dee1] font-thin transition easi-in-out bg-[#53dee1] text-2xl p-2 rounded-3xl text-white w-full">
+                                className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-2 rounded-3xl text-white w-full">
                                 <a href={dados.link} target="_blank">Quero esse Passeio</a>
 
                             </motion.button>
@@ -63,9 +78,9 @@ export const Combo = () => {
 
                     </div>
                 ))}
-                <div className="bg-linear-to-b from-sky-300 to-blue-600 text-white p-2 md:max-w-screen-lg mx-auto rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#53dee1] m-5 p-3">
+                <div className="bg-linear-to-b from-sky-300 to-blue-600 text-white p-2 md:max-w-screen-lg mx-auto rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] m-5 p-3">
                     <div className="bg-red-600 text-green-300 font-bold p-2 text-center text-xl rounded-t-xl">
-                        R$: 1199,99
+                        R$: 999,99
                     </div>
 
                     <div className="text-center text-yellow-400 font-extrabold text-3xl my-4">
@@ -79,16 +94,16 @@ export const Combo = () => {
 
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.8 }}
-                            className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#53dee1] font-thin transition easi-in-out bg-[#53dee1] text-2xl p-2 rounded-3xl text-white w-full ">
+                            className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-2 rounded-3xl text-white w-full ">
                             <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%206%20praias%20em%204%20dias." target="_blank">Quero esse combo</a>
 
                         </motion.button>
                     </div>
 
                 </div>
-                <div className="bg-linear-to-b from-sky-300 to-blue-600 text-white p-2 md:max-w-screen-lg mx-auto rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#53dee1] m-5 p-3">
+                <div className="bg-linear-to-b from-sky-300 to-blue-600 text-white p-2 md:max-w-screen-lg mx-auto rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] m-5 p-3">
                     <div className="bg-red-600 text-green-300 font-bold p-2 text-center text-xl rounded-t-xl">
-                        R$: 999,99
+                        R$: 899,99
                     </div>
 
                     <div className="text-center text-yellow-400 font-extrabold text-3xl my-4">
@@ -102,7 +117,7 @@ export const Combo = () => {
 
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.8 }}
-                            className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#53dee1] font-thin transition easi-in-out bg-[#53dee1] text-2xl p-2 rounded-3xl text-white w-full ">
+                            className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-2 rounded-3xl text-white w-full ">
                             <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%205%20praias%20em%203%20dias." target="_blank">Quero esse combo</a>
 
                         </motion.button>
@@ -121,7 +136,7 @@ export const Combo = () => {
 const toursAdd = [
     {
         titulo: "LANCHA COMPARTILHADA EM MARAGOGI",
-        valor: "130,00 P/PESSOA",
+        valor: "150,00 P/PESSOA",
         descricao: "Passeio de Lancha compartilhada com 03 paradas: Piscina Natural, Caminho de Moisés e Praia de Antunes. É permitido levar bébidas e alimentos.",
         duracao: "2h30min",
         src: "/assets/lancha-espresso-maragogi.jpeg",

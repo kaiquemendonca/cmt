@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
+import { motion } from 'motion/react';
 import 'swiper/css'
 
 
@@ -35,12 +36,22 @@ export default function PhotoCarousel({ data }: Props) {
 
     return (
         <div className="w-full overflow-hidden py-10 bg-white">
-            <h3 className='text-center text-xl font-medium mb-6 text-gray-500 uppercase flex items-center justify-center'>
+            <motion.h3
+                initial={{ opacity: 0, }}
+                whileInView={{ opacity: 1, }}
+                viewport={{ amount: 0.4 }}
+                transition={{ duration: 1.0, ease: 'easeOut' }}
+                className='text-center text-xl font-medium mb-6 text-gray-500 uppercase flex items-center justify-center'>
                 <img src='/assets/icones/aviao.svg' className='mx-4' />
                 Clientes que já viajam com nosso planejamento e suporte
                 <img src='/assets/icones/aviao.svg' className='-scale-x-100 mx-4' />
-            </h3>
-            <h2 className="text-center text-3xl font-bold mb-6 text-gray-800 uppercase">Eu trabalho com o que eu amo!</h2>
+            </motion.h3>
+            <motion.h2
+                initial={{ opacity: 0, }}
+                whileInView={{ opacity: 1, }}
+                viewport={{ amount: 1 }}
+                transition={{ duration: 3.0, ease: 'easeOut' }}
+                className="text-center text-3xl font-bold mb-6 text-gray-800 uppercase">Eu trabalho com o que eu amo!</motion.h2>
             <Swiper
                 modules={[Autoplay]}
                 slidesPerView={7}
@@ -50,7 +61,7 @@ export default function PhotoCarousel({ data }: Props) {
                     disableOnInteraction: false,
                 }}
                 speed={3000}
-                grabCursor={true}
+                
                 spaceBetween={10}
                 breakpoints={{
                     320: { slidesPerView: 2 },
@@ -76,13 +87,13 @@ export default function PhotoCarousel({ data }: Props) {
                 freeMode={true}
                 spaceBetween={10}
                 loop={true}
-                grabCursor={true}
+              
                 autoplay={{
                     delay: 1,
                     disableOnInteraction: false,
                     reverseDirection: true,
                     pauseOnMouseEnter: false
-                    
+
                 }}
                 speed={3000}
                 breakpoints={{

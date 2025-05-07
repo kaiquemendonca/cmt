@@ -31,7 +31,7 @@ export const Principal = () => {
                     </div>
 
                     {/* Cards de destinos */}
-                    <div className="flex flex-wrap justify-center">
+                    <div className="flex justify-center">
                         {/* Maragogi */}
                         <motion.div
                             initial={{ x: -350, opacity: 0 }}
@@ -42,7 +42,7 @@ export const Principal = () => {
                                 delay: 0.5,
                                 ease: 'easeOut',
                             }}
-                            className="flex flex-col relative w-31 h-38 md:w-80 md:h-97 bg-white border-white border-4 md:border-10  shadow-lg overflow-hidden ">
+                            className="flex flex-col relative w-30 h-38 md:w-80 md:h-97 bg-white border-white border-4 md:border-10  shadow-lg overflow-hidden ">
                             <img
                                 src="/assets/maragogi/IMG-20250401-WA0021.jpg"
                                 alt="Maragogi"
@@ -63,7 +63,7 @@ export const Principal = () => {
                                 delay: 1.5,
                                 ease: 'easeOut',
                             }}
-                            className="z-10  flex flex-col relative w-31 h-44 md:w-80 md:h-97 bg-white border-white border-4 md:border-10 shadow-lg overflow-hidden">
+                            className="z-10  flex flex-col relative w-30 h-44 md:w-80 md:h-97 bg-white border-white border-4 md:border-10 shadow-lg overflow-hidden">
                             <img
                                 src="/assets/gunga/IMG-20250401-WA0032.jpg"
                                 alt="Francês, Barra de São Miguel, Gunga"
@@ -87,7 +87,7 @@ export const Principal = () => {
                                 ease: 'easeOut',
                             }}
 
-                            className="flex flex-col relative w-31 h-38 md:w-80 md:h-97 bg-white border-white border-4 md:border-10 shadow-lg overflow-hidden">
+                            className="flex flex-col relative w-30 h-38 md:w-80 md:h-97 bg-white border-white border-4 md:border-10 shadow-lg overflow-hidden">
                             <img
                                 src="/assets/milagres/IMG-20250401-WA0043.jpg"
                                 alt="Milagres"

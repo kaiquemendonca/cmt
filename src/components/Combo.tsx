@@ -13,7 +13,7 @@ export const Combo = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: 'easeOut' }}
-            id="combotrips" className="flex flex-col p-3 items-center  justify-center md:w-7xl md:mx-auto w-full relative min-h-screen snap-start ">
+            id="combotrips" className="flex flex-col p-3 items-center  justify-center md:w-7xl md:mx-auto w-full relative min-h-screen snap-start bg-white">
 
             <motion.div className="text-4xl md:text-5xl mt-18 md:m-10 text-blue-400">
                 <h2 className="text-center text-3xl font-bold mb-6 text-gray-800 uppercase">Promoções Imperdíveis</h2>

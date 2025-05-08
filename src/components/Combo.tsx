@@ -18,124 +18,181 @@ export const Combo = () => {
             <motion.div className="text-4xl md:text-5xl mt-18 md:m-10 text-blue-400">
                 <h2 className="text-center text-3xl font-bold mb-6 text-gray-800 uppercase">Promoções Imperdíveis</h2>
             </motion.div>
-            <div className="flex flex-col md:flex-row grid grid-cols-1 md:grid-cols-3 gap-3 items-center justify-between w-full">
+            <div className="flex flex-col md:flex-row grid grid-cols-1 md:grid-cols-4 gap-3 items-start justify-between w-full">
 
 
                 {toursAdd.map((dados, index) => (
-                    <div key={index} className="bg-linear-to-b from-sky-300 to-blue-600 text-white p-2 md:max-w-screen-lg mx-auto rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#53dee1] m-5 p-3">
-                        <motion.div 
-                         initial={{ opacity: 0, y: 50 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         viewport={{ once: true, amount: 0.2 }}
-                         transition={{ duration: 0.6, delay: index * 1.0, ease: 'easeOut' }}
-                        className="bg-red-600 text-green-300 font-bold p-2 text-center text-xl rounded-t-xl">
-                            R$: {dados.valor}
-                        </motion.div>
+                    <div key={index} className="bg-white text-white md:max-w-screen-lg rounded-xl border border-[#a3f7f9]  shadow-[2px_2px_30px_2px_#fff]">
 
-                        <div className="text-center text-yellow-400 font-extrabold text-3xl my-4">
-                            PROMOÇÃO
-                        </div>
-                        <motion.div 
-                         initial={{ opacity: 0, y: 50 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         viewport={{ once: true, amount: 0.2 }}
-                         transition={{ duration: 0.6, delay: index * 0.5, ease: 'easeOut' }}
-                        className="text-center text-green-100 font-bold text-xl mb-4">
-                            {dados.titulo}
-                        </motion.div>
 
-                        <div className="flex">
-                            <div className="relative">
+                        <div className="flex w-full">
+                            <div className="relative w-full">
                                 <img
                                     src={dados.src}
 
-                                    className="rounded-lg object-cover w-[400px] h-[400px]"
+                                    className="rounded-lg object-cover w-full h-[250px]"
                                 />
                             </div>
-
                         </div>
+                        <div className="px-5 py-6 h-[280px]">
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.6, delay: index * 0.5, ease: 'easeOut' }}
+                                className="text-justify text-blue-600 text-md mb-2">
+                                {dados.titulo}
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.6, delay: index * 0.5, ease: 'easeOut' }}
+                                className="h-[120px]"
+                            >
+                                <p className="text-justify mb-2 text-gray-500 text-sm">
+                                    {dados.descricao}
+                                </p>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.6, delay: index * 1.0, ease: 'easeOut' }}
+                                className="text-green-700 text-justify text-bold text-md rounded-t-xl">
+                                R${dados.valor}
+                            </motion.div>
+
+
+                            <div className="flex items-center justify-center mt-4">
+                                <motion.button
+
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.8 }}
+                                    className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-1 rounded-2xl text-white w-full">
+                                    <a href={dados.link} target="_blank">Reservar</a>
+
+                                </motion.button>
+                            </div>
+                        </div>
+
+                    </div>
+                ))}
+                <div className="bg-white text-white md:max-w-screen-lg rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff]">
+
+                    <div className="flex w-full">
+                        <div className="relative w-full">
+                            <img
+                                src="/assets/gunga/IMG-20250401-WA0001.jpg"
+
+                                className="rounded-lg object-cover w-full h-[250px]"
+                            />
+                        </div>
+                    </div>
+                    <div className="px-5 py-6 h-[280px]">
                         <motion.div
-                         initial={{ opacity: 0, y: 50 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         viewport={{  amount: 0.2 }}
-                         transition={{ duration: 0.6, delay: index * 0.5, ease: 'easeOut' }}
-                        >
-                            <p className="text-justify">
-                                {dados.descricao}
-                            </p>
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
+                            className="text-justify text-blue-600 text-md mb-2">
+                            Combo 6 praias em 4 dias
                         </motion.div>
 
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true,amount: 0.2 }}
+                            transition={{ duration: 0.5, delay: 1.0, ease: 'easeOut' }}
+                            className="h-[120px]"
+                        >
+                            <p className="text-justify mb-2 text-gray-500 text-sm">
+                                Conheça 6 praias em 4 dias. Maragogi, Milagres, Ipioca, Francês, Barra de São Miguel e Gunga.
+                            </p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5, delay: 1.5, ease: 'easeOut' }}
+                            className="text-green-700 text-justify text-bold text-md rounded-t-xl">
+                            <span className="text-gray-500">A partir de</span> R$1199,00
+                        </motion.div>
                         <div className="flex items-center justify-center mt-4">
                             <motion.button
 
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.8 }}
-                                className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-2 rounded-3xl text-white w-full">
-                                <a href={dados.link} target="_blank">Quero esse Passeio</a>
+                                className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-2 rounded-3xl text-white w-full ">
+                                <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%206%20praias%20em%204%20dias." target="_blank">Quero esse combo</a>
 
                             </motion.button>
                         </div>
 
                     </div>
-                ))}
-                <div className="bg-linear-to-b from-sky-300 to-blue-600 text-white p-2 md:max-w-screen-lg mx-auto rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] m-5 p-3">
-                    <div className="bg-red-600 text-green-300 font-bold p-2 text-center text-xl rounded-t-xl">
-                        R$: 999,99
-                    </div>
-
-                    <div className="text-center text-yellow-400 font-extrabold text-3xl my-4">
-                        PROMOÇÃO
-                    </div>
-                    <div>
-                        <img src="/assets/COMBODE4DIAS.png" className="" />
-                    </div>
-                    <div className="flex items-center justify-center mt-4">
-                        <motion.button
-
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.8 }}
-                            className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-2 rounded-3xl text-white w-full ">
-                            <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%206%20praias%20em%204%20dias." target="_blank">Quero esse combo</a>
-
-                        </motion.button>
-                    </div>
-
                 </div>
-                <div className="bg-linear-to-b from-sky-300 to-blue-600 text-white p-2 md:max-w-screen-lg mx-auto rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] m-5 p-3">
-                    <div className="bg-red-600 text-green-300 font-bold p-2 text-center text-xl rounded-t-xl">
-                        R$: 899,99
-                    </div>
+                <div className="bg-white text-white md:max-w-screen-lg rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff]">
 
-                    <div className="text-center text-yellow-400 font-extrabold text-3xl my-4">
-                        PROMOÇÃO
-                    </div>
-                    <div>
-                        <img src="/assets/COMBODE3DIAS.png" className="" />
-                    </div>
-                    <div className="flex items-center justify-center mt-4">
-                        <motion.button
+                    <div className="flex w-full">
+                        <div className="relative w-full">
+                            <img
+                                src="/assets/gunga/IMG-20250401-WA0001.jpg"
 
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.8 }}
-                            className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-2 rounded-3xl text-white w-full ">
-                            <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%205%20praias%20em%203%20dias." target="_blank">Quero esse combo</a>
-
-                        </motion.button>
+                                className="rounded-lg object-cover w-full h-[250px]"
+                            />
+                        </div>
                     </div>
+                    <div className="px-5 py-6 h-[280px]">
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
+                            className="text-justify text-blue-600 text-md mb-2">
+                            Combo 5 praias em 3 dias
+                        </motion.div>
 
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true,amount: 0.2 }}
+                            transition={{ duration: 0.5, delay: 1.0, ease: 'easeOut' }}
+                            className="h-[120px]"
+                        >
+                            <p className="text-justify mb-2 text-gray-500 text-sm">
+                                Conheça 5 praias em 3 dias. Maragogi, Milagres, Francês, Barra de São Miguel e Gunga.
+                            </p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5, delay: 1.5, ease: 'easeOut' }}
+                            className="text-green-700 text-justify text-bold text-md rounded-t-xl">
+                            <span className="text-gray-500">A partir de</span> R$1199,00
+                        </motion.div>
+                        <div className="flex items-center justify-center mt-4">
+                            <motion.button
+
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.8 }}
+                                className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-2 rounded-3xl text-white w-full ">
+                                <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%205%20praias%20em%203%20dias." target="_blank">Quero esse combo</a>
+
+                            </motion.button>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
-
-        </motion.div>
+        </motion.div >
     )
 
 }
 
 const toursAdd = [
     {
-        titulo: "LANCHA COMPARTILHADA EM MARAGOGI",
+        titulo: "Lancha Compartilha em Maragogi",
         valor: "150,00 P/PESSOA",
         descricao: "Passeio de Lancha compartilhada com 03 paradas: Piscina Natural, Caminho de Moisés e Praia de Antunes. É permitido levar bébidas e alimentos.",
         duracao: "2h30min",
@@ -143,7 +200,7 @@ const toursAdd = [
         link: "https://wa.me/5582991432144?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20lancha%20compartilhada%20em%20Maragogi"
     },
     {
-        titulo: "JANGADA EM MILAGRES",
+        titulo: "Jangada em Milagres",
         valor: "100,00 P/PESSOA",
         descricao: "Piscinas naturais de milagres 1• parada – banho com os peixinhos 2• parada – Fotos na boia e rede 3• Terceira e última parada – mergulho de cima da jangada",
         duracao: "2h30min",
@@ -151,9 +208,9 @@ const toursAdd = [
         link: "https://wa.me/5582991432144?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20jangada%20em%20Milagres"
     },
     {
-        titulo: "JETSKI MARAGOGI",
+        titulo: "Jet Ski em Maragogi",
         valor: "300,00 até 2 PESSOAS",
-        descricao: "Aluguel de Jet Ski para até 2 pessoas. 30 minutos de locação R$300. Para conduzir o jet você tem seguir ao pé da letra as recomendações de nossos guias. Caso você não tenha nhuma experiência, o passeio será guiado.",
+        descricao: "Jet Ski para até 2 pessoas. Para conduzir o jet você tem seguir ao pé da letra as recomendações de nossos guias. Caso você não tenha nhuma experiência, o passeio será guiado.",
         duracao: "30min",
         src: "/assets/jetski.png",
         link: "https://wa.me/5582991432144?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20JetSki%20em%20Maragogi"

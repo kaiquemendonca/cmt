@@ -16,13 +16,11 @@ export const Combo = () => {
             id="combotrips" className="flex flex-col p-3 items-center  justify-center md:w-7xl md:mx-auto w-full relative min-h-screen snap-start bg-white">
 
             <motion.div className="text-4xl md:text-5xl mt-18 md:m-10 text-blue-400">
-                <h2 className="text-center text-3xl font-bold mb-6 text-gray-800 uppercase">Promoções Imperdíveis</h2>
+                <h2 className="text-center text-3xl font-bold mb-6 text-blue-400 uppercase">Promoções Imperdíveis</h2>
             </motion.div>
             <div className="flex flex-col md:flex-row grid grid-cols-1 md:grid-cols-4 gap-3 items-start justify-between w-full">
-
-
                 {toursAdd.map((dados, index) => (
-                    <div key={index} className="bg-white text-white md:max-w-screen-lg rounded-xl border border-[#a3f7f9]  shadow-[2px_2px_30px_2px_#fff]">
+                    <div key={index} className="bg-gray-100 text-white md:max-w-screen-lg rounded-xl border border-[#a3f7f9] shadow-[0px_1px_2px_0px_rgba(60,64,67,0.3)]">
 
 
                         <div className="flex w-full">
@@ -49,7 +47,7 @@ export const Combo = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.2 }}
                                 transition={{ duration: 0.6, delay: index * 0.5, ease: 'easeOut' }}
-                                className="h-[120px]"
+                                className="h-[90px]"
                             >
                                 <p className="text-justify mb-2 text-gray-500 text-sm">
                                     {dados.descricao}
@@ -79,7 +77,7 @@ export const Combo = () => {
 
                     </div>
                 ))}
-                <div className="bg-white text-white md:max-w-screen-lg rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff]">
+                <div className="bg-gray-100 text-white md:max-w-screen-lg rounded-xl border border-[#a3f7f9] border-2 shadow-[0px_1px_2px_0px_rgba(60,64,67,0.3)]">
 
                     <div className="flex w-full">
                         <div className="relative w-full">
@@ -105,7 +103,7 @@ export const Combo = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true,amount: 0.2 }}
                             transition={{ duration: 0.5, delay: 1.0, ease: 'easeOut' }}
-                            className="h-[120px]"
+                            className="h-[90px]"
                         >
                             <p className="text-justify mb-2 text-gray-500 text-sm">
                                 Conheça 6 praias em 4 dias. Maragogi, Milagres, Ipioca, Francês, Barra de São Miguel e Gunga.
@@ -124,7 +122,7 @@ export const Combo = () => {
 
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.8 }}
-                                className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-2 rounded-3xl text-white w-full ">
+                                className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-1 rounded-2xl text-white w-full ">
                                 <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%206%20praias%20em%204%20dias." target="_blank">Quero esse combo</a>
 
                             </motion.button>
@@ -132,7 +130,7 @@ export const Combo = () => {
 
                     </div>
                 </div>
-                <div className="bg-white text-white md:max-w-screen-lg rounded-xl border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff]">
+                <div className="bg-gray-100 text-white md:max-w-screen-lg rounded-xl border border-[#a3f7f9] border-2 shadow-[0px_1px_2px_0px_rgba(60,64,67,0.3)]">
 
                     <div className="flex w-full">
                         <div className="relative w-full">
@@ -158,7 +156,7 @@ export const Combo = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true,amount: 0.2 }}
                             transition={{ duration: 0.5, delay: 1.0, ease: 'easeOut' }}
-                            className="h-[120px]"
+                            className="h-[90px]"
                         >
                             <p className="text-justify mb-2 text-gray-500 text-sm">
                                 Conheça 5 praias em 3 dias. Maragogi, Milagres, Francês, Barra de São Miguel e Gunga.
@@ -170,14 +168,14 @@ export const Combo = () => {
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: 0.5, delay: 1.5, ease: 'easeOut' }}
                             className="text-green-700 text-justify text-bold text-md rounded-t-xl">
-                            <span className="text-gray-500">A partir de</span> R$1199,00
+                            <span className="text-gray-500">A partir de</span> R$899,00
                         </motion.div>
                         <div className="flex items-center justify-center mt-4">
                             <motion.button
 
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.8 }}
-                                className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-2 rounded-3xl text-white w-full ">
+                                className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-1 rounded-2xl text-white w-full ">
                                 <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%205%20praias%20em%203%20dias." target="_blank">Quero esse combo</a>
 
                             </motion.button>
@@ -208,9 +206,9 @@ const toursAdd = [
         link: "https://wa.me/5582991432144?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20jangada%20em%20Milagres"
     },
     {
-        titulo: "Jet Ski em Maragogi",
+        titulo: "JetSki em Maragogi",
         valor: "300,00 até 2 PESSOAS",
-        descricao: "Jet Ski para até 2 pessoas. Para conduzir o jet você tem seguir ao pé da letra as recomendações de nossos guias. Caso você não tenha nhuma experiência, o passeio será guiado.",
+        descricao: "JetSki para até 2 pessoas. Caso você não tenha nhuma experiência, o passeio será guiado.",
         duracao: "30min",
         src: "/assets/jetski.png",
         link: "https://wa.me/5582991432144?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20JetSki%20em%20Maragogi"

@@ -36,13 +36,13 @@ export default function Tours({ data }: Props) {
 
   return (
     <motion.div
-      className='h-[90vh] md:h-[110vh] bg-white ' id="trips">
+      className='h-[70vh] md:h-[110vh] bg-white ' id="trips">
       <section className="relative h-screen w-full">
         {/* Fundo com imagem */}
         <img
           src="/assets/praia-de-maragogi.png"
           alt="Fundo Alagoas"
-          className="absolute inset-0 w-full h-[80%]  md:h-full object-cover p-5 rounded-[50px]"
+          className="absolute inset-0 w-full h-[70%]  md:h-full object-cover p-5 rounded-[50px]"
         />
         {/* Conteúdo */}
         <motion.div
@@ -50,7 +50,7 @@ export default function Tours({ data }: Props) {
           whileInView={{ opacity: 1, }}
           viewport={{ amount: 0.3 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          className="relative z-10 flex flex-col items-start p-10 md:p-30 justify-start h-[50%] md:h-[70%] text-white ">
+          className="relative z-10 flex flex-col items-start p-10 md:p-30 justify-start h-[30%] md:h-[70%] text-white ">
           <motion.h3 initial={{ opacity: 0 }}
             whileInView={{ opacity: 1, }}
             viewport={{ amount: 1.0 }}

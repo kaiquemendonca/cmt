@@ -9,17 +9,18 @@ type PasseioDetalhado = {
     valor: string;
     descricao: string;
     duracao: string;
-};
-
-type SliderItem = {
+  };
+  
+  type SliderItem = {
     id: number;
     img: string[];
-    location: string;
+    distancia: string;
     description: string;
     title: string;
     valor: string;
+    fotos: string[];
     passeios: PasseioDetalhado[];
-};
+  };
 
 type Props = {
     data: SliderItem[];
@@ -39,8 +40,8 @@ export default function PhotoCarousel({ data }: Props) {
             <motion.h3
                 initial={{ opacity: 0, }}
                 whileInView={{ opacity: 1, }}
-                viewport={{ amount: 0.4 }}
-                transition={{ duration: 1.0, ease: 'easeOut' }}
+                viewport={{once: true, amount: 0.3 }}
+                transition={{ duration: 1.0, delay:0.5, ease: 'easeOut' }}
                 className='text-center text-xl font-medium mb-6 text-gray-500 uppercase flex items-center justify-center'>
                 <img src='/assets/icones/aviao.svg' className='mx-4' />
                 Clientes que já viajam com nosso planejamento e suporte
@@ -49,8 +50,8 @@ export default function PhotoCarousel({ data }: Props) {
             <motion.h2
                 initial={{ opacity: 0, }}
                 whileInView={{ opacity: 1, }}
-                viewport={{ amount: 1 }}
-                transition={{ duration: 3.0, ease: 'easeOut' }}
+                viewport={{once: true, amount: 0.3 }}
+                transition={{ duration: 1.0, delay: 1.0, ease: 'easeOut' }}
                 className="text-center text-3xl font-bold mb-6 text-gray-800 uppercase">Eu trabalho com o que eu amo!</motion.h2>
             <Swiper
                 modules={[Autoplay]}

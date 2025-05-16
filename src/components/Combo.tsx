@@ -57,7 +57,7 @@ export const Combo = () => {
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.2 }}
-                                transition={{ duration: 0.6, delay: index * 1.0, ease: 'easeOut' }}
+                                transition={{ duration: 0.6, delay: index * 0.5, ease: 'easeOut' }}
                                 className="text-green-700 text-justify text-bold text-md rounded-t-xl">
                                 R${dados.valor}
                             </motion.div>
@@ -102,7 +102,7 @@ export const Combo = () => {
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true,amount: 0.2 }}
-                            transition={{ duration: 0.5, delay: 1.0, ease: 'easeOut' }}
+                            transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
                             className="h-[90px]"
                         >
                             <p className="text-justify mb-2 text-gray-500 text-sm">
@@ -113,9 +113,9 @@ export const Combo = () => {
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 0.5, delay: 1.5, ease: 'easeOut' }}
+                            transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
                             className="text-green-700 text-justify text-bold text-md rounded-t-xl">
-                            <span className="text-gray-500">A partir de</span> R$1199,00
+                            <span className="text-gray-500">A partir de</span> R$999,00
                         </motion.div>
                         <div className="flex items-center justify-center mt-4">
                             <motion.button
@@ -123,7 +123,7 @@ export const Combo = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.8 }}
                                 className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-1 rounded-2xl text-white w-full ">
-                                <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%206%20praias%20em%204%20dias." target="_blank">Quero esse combo</a>
+                                <a href="https://wa.me/5582994180997?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%206%20praias%20em%204%20dias." target="_blank">Quero esse combo</a>
 
                             </motion.button>
                         </div>
@@ -154,8 +154,8 @@ export const Combo = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true,amount: 0.2 }}
-                            transition={{ duration: 0.5, delay: 1.0, ease: 'easeOut' }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
                             className="h-[90px]"
                         >
                             <p className="text-justify mb-2 text-gray-500 text-sm">
@@ -166,9 +166,9 @@ export const Combo = () => {
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 0.5, delay: 1.5, ease: 'easeOut' }}
+                            transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
                             className="text-green-700 text-justify text-bold text-md rounded-t-xl">
-                            <span className="text-gray-500">A partir de</span> R$899,00
+                            <span className="text-gray-500">A partir de</span> R$849,00
                         </motion.div>
                         <div className="flex items-center justify-center mt-4">
                             <motion.button
@@ -176,7 +176,7 @@ export const Combo = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.8 }}
                                 className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-1 rounded-2xl text-white w-full ">
-                                <a href="https://wa.me/5582991432144?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%205%20praias%20em%203%20dias." target="_blank">Quero esse combo</a>
+                                <a href="https://wa.me/5582994180997?text=Ol%C3%A1%20C%C3%A9sar%2C%20estou%20interessado%20no%20combo%20de%205%20praias%20em%203%20dias." target="_blank">Quero esse combo</a>
 
                             </motion.button>
                         </div>
@@ -191,11 +191,11 @@ export const Combo = () => {
 const toursAdd = [
     {
         titulo: "Lancha Compartilha em Maragogi",
-        valor: "150,00 P/PESSOA",
+        valor: "125,00 P/PESSOA",
         descricao: "Passeio de Lancha compartilhada com 03 paradas: Piscina Natural, Caminho de Moisés e Praia de Antunes. É permitido levar bébidas e alimentos.",
         duracao: "2h30min",
         src: "/assets/lancha-espresso-maragogi.jpeg",
-        link: "https://wa.me/5582991432144?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20lancha%20compartilhada%20em%20Maragogi"
+        link: "https://wa.me/5582994180997?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20lancha%20compartilhada%20em%20Maragogi"
     },
     {
         titulo: "Jangada em Milagres",
@@ -203,7 +203,7 @@ const toursAdd = [
         descricao: "Piscinas naturais de milagres 1• parada – banho com os peixinhos 2• parada – Fotos na boia e rede 3• Terceira e última parada – mergulho de cima da jangada",
         duracao: "2h30min",
         src: "/assets/milagres/IMG-20250401-WA0019.jpg",
-        link: "https://wa.me/5582991432144?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20jangada%20em%20Milagres"
+        link: "https://wa.me/5582994180997?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20jangada%20em%20Milagres"
     },
     {
         titulo: "JetSki em Maragogi",
@@ -211,7 +211,7 @@ const toursAdd = [
         descricao: "JetSki para até 2 pessoas. Caso você não tenha nhuma experiência, o passeio será guiado.",
         duracao: "30min",
         src: "/assets/jetski.png",
-        link: "https://wa.me/5582991432144?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20JetSki%20em%20Maragogi"
+        link: "https://wa.me/5582994180997?text=Ol%C3%A1%2C%20C%C3%A9sar!%20Estou%20interessado%20em%20agendar%20o%20passeio%20de%20JetSki%20em%20Maragogi"
     },
 ]
 

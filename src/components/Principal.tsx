@@ -127,7 +127,7 @@ export const Principal = () => {
                         whileTap={{ scale: 0.8 }}
                         className="mt-5 md:mt-10 cursor-pointer border border-white border-2 font-thin transition easi-in-out bg-blue-400 text-4xl p-2 px-12 rounded-4xl text-white flex items-center justify-center"
                     >
-                        <a className="tracking-widest" href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank">Saiba mais</a>
+                        <a className="tracking-widest" href="https://api.whatsapp.com/send?l=pt&phone=5582994180997" target="_blank">Saiba mais</a>
                         <img className="ml-2" src="/assets/wapp.svg" />
                     </motion.button>
                 </div>
@@ -140,7 +140,12 @@ export const Principal = () => {
                     <span className={`${fontPrincipal.className} text-[#fea13a] text-3xl`}>César Maceió Turismo?</span>
                 </h1>
                 <p className="font-normal">
-                    <div className="flex">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1, }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
+                        className="flex">
                         <div className="size-20">
                             <img src="/assets/icones/credencia.svg" />
                         </div>
@@ -148,17 +153,27 @@ export const Principal = () => {
                             <h3 className="text-gray-800">GUIA CREDENCIADO</h3>
                             <p className="">Serviço conduzido por guia credenciado pelo cadastur.</p>
                         </div>
-                    </div>
-                    <div className="flex">
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1, }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 1, delay: 1.0, ease: 'easeOut' }}
+                        className="flex">
                         <div className="size-20">
-                            <img src="/assets/icones/services.svg"/>
+                            <img src="/assets/icones/services.svg" />
                         </div>
                         <div className="flex flex-col px-4">
                             <h3 className="text-gray-800">PRIVATIVO</h3>
                             <p className="">Serviço privativo, exclusivo para você e sua família.</p>
                         </div>
-                    </div>
-                    <div className="flex">
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1, }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 1, delay: 1.5, ease: 'easeOut' }}
+                        className="flex">
                         <div className="size-20">
                             <img src="/assets/icones/car.svg" />
                         </div>
@@ -166,8 +181,13 @@ export const Principal = () => {
                             <h3 className="text-gray-800">CONFORTO E SEGURANÇA</h3>
                             <p className="">Serviço executado em carro seguro e confortável.</p>
                         </div>
-                    </div>
-                    <div className="flex">
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1, }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 1.0, delay: 2.0, ease: 'easeOut' }}
+                        className="flex">
                         <div className="size-20">
                             <img src="/assets/icones/fotos.svg" />
                         </div>
@@ -175,19 +195,19 @@ export const Principal = () => {
                             <h3 className="text-gray-800">FOTOS E VÍDEOS DE CORTESIA</h3>
                             <p className="">Fotos e vídeos sem precisar pagar nada a mais.</p>
                         </div>
-                    </div>
+                    </motion.div>
                 </p>
             </div>
 
             {/* Botões de contato */}
-            <div className="w-full flex items-center justify-around bg-[#0077b6] pb-6">
+            <div className="w-full flex justify-around md:justify-center md:mx-5 bg-[#0077b6] pb-6">
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.8 }}
                     className="mt-5 cursor-pointer border border-white border-2 font-thin transition easi-in-out bg-blue-400 text-xl p-2 px-4 rounded-4xl text-white flex items-center justify-center"
                 >
-                    
-                    <a className="tracking-widest" href="https://api.whatsapp.com/send?l=pt&phone=5582991432144" target="_blank">WHATSAPP</a>
+
+                    <a className="tracking-widest" href="https://api.whatsapp.com/send?l=pt&phone=5582994180997" target="_blank">WHATSAPP</a>
                     <img className="ml-1" src="/assets/wapp.svg" />
                 </motion.button>
 
@@ -196,7 +216,7 @@ export const Principal = () => {
                     whileTap={{ scale: 0.8 }}
                     className="mt-5 md:mx-5 cursor-pointer border border-white border-2 font-thin transition easi-in-out bg-blue-400 text-xl p-2 px-4 rounded-4xl text-white flex items-center justify-center"
                 >
-                    
+
                     <a className="tracking-widest" href="https://www.instagram.com/cesarmaceiotur/" target="_blank">INSTAGRAM</a>
                     <img className="ml-1" src="/assets/insta2.svg" />
                 </motion.button>

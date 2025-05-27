@@ -59,7 +59,7 @@ export default function Home() {
 
         <Header ative={ative} setAtive={setAtive} />
         <Principal/>
-        <Tours data={sliderData}/>
+        <Tours/>
         <Combo />
         <PhotoCarousel data={sliderData} />
         <Contacts />
@@ -259,7 +259,7 @@ const sliderData = [
     description: "",
     title: "Dunas de Marapé",
     valor: "300,00R$",
-    fotos: ["assets/fdunas/1.jpg","assets/fdunas/2.jpg","assets/fdunas/3.jpg","assets/fdunas/4.jpg"],
+    fotos: ["/assets/fdunas/1.jpg","/assets/fdunas/2.jpg","/assets/fdunas/3.jpg","/assets/fdunas/4.jpg"],
     passeios: [
       {
         titulo: "",

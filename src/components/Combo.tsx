@@ -13,7 +13,7 @@ export const Combo = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: 'easeOut' }}
-            id="combotrips" className="flex flex-col p-3 items-center  justify-center md:w-7xl md:mx-auto w-full relative min-h-screen snap-start bg-white">
+            id="combotrips" className="flex flex-col p-3 items-center  justify-center md:p-30 md:pt-10 md:mx-auto w-full relative min-h-screen snap-start bg-white">
 
             <motion.div className="text-4xl md:text-5xl mt-18 md:m-10 text-blue-400">
                 <h2 className="text-center text-3xl font-bold mb-6 text-blue-400 uppercase">Promoções Imperdíveis</h2>
@@ -27,7 +27,7 @@ export const Combo = () => {
                             <div className="relative w-full">
                                 <img
                                     src={dados.src}
-
+                                    alt={`${dados.titulo}`}
                                     className="rounded-lg object-cover w-full h-[250px]"
                                 />
                             </div>
@@ -83,7 +83,7 @@ export const Combo = () => {
                         <div className="relative w-full">
                             <img
                                 src="/assets/gunga/IMG-20250401-WA0001.jpg"
-
+                                alt="COMBO PASSEIOS ALAGOAS"
                                 className="rounded-lg object-cover w-full h-[250px]"
                             />
                         </div>

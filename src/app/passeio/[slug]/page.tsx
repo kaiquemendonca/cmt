@@ -1,7 +1,7 @@
 import TourPageClient from './TourPageClient';
 
 export default async function TourPage({ params }: { params: { slug: string } }) {
-  const { slug } = await params;
+  const { slug } = params; // ✅ Sem await aqui
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/tours?filters[slug]=${slug}&populate=images`,

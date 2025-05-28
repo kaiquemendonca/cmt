@@ -1,11 +1,8 @@
 import React from 'react';
 import TourPageClient from './TourPageClient';
+import { notFound } from 'next/navigation';
 
-interface TourPageProps {
-  params: { slug: string };
-}
-
-export default async function TourPage({ params }: TourPageProps) {
+export default async function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
   const res = await fetch(
@@ -21,7 +18,7 @@ export default async function TourPage({ params }: TourPageProps) {
   const tour = data.data[0];
 
   if (!tour) {
-    throw new Error('Passeio não encontrado');
+    notFound();
   }
 
   return <TourPageClient tour={tour} />;

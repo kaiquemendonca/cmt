@@ -7,28 +7,22 @@ import { ptBR } from 'date-fns/locale';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
+type Tour = {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  images: { url: string; alt: string }[];
+};
 
-export default function Page({ params }: PageProps) {
+export default function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const router = useRouter();
 
-  type Tour = {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    images: { url: string; alt: string }[];
-  };
-
   const [tour, setTour] = useState<Tour | null>(null);
-  const [disabledDates, setDisabledDates] = useState([]);
+  const [disabledDates, setDisabledDates] = useState<Date[]>([]);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState<number>(1);
 
   const [form, setForm] = useState({
     name: '',
@@ -51,7 +45,7 @@ export default function Page({ params }: PageProps) {
     }
 
     if (!tour) {
-      alert('Passeio não encontrado');
+      alert('Informações do passeio não carregadas.');
       return;
     }
 
@@ -78,37 +72,23 @@ export default function Page({ params }: PageProps) {
 
   useEffect(() => {
     const fetchTour = async () => {
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/tours?filters[slug]=${slug}&populate=images`
-        );
-
-        if (!res.ok) {
-          throw new Error('Erro ao buscar dados do passeio');
-        }
-
-        const data = await res.json();
-        const tourData = data.data[0];
-
-        if (!tourData) {
-          throw new Error('Passeio não encontrado');
-        }
-
-        setTour({
-          id: tourData.id,
-          name: tourData.title,
-          description: tourData.description,
-          price: tourData.price,
-          images: tourData.images.data.map(
-            (img: { url: string; alternativeText: string }) => ({
-              url: img.url,
-              alt: img.alternativeText,
-            })
-          ),
-        });
-      } catch (error) {
-        console.error(error);
-      }
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/tours?filters[slug]=${slug}&populate=images`
+      );
+      const data = await res.json();
+      const tourData = data.data[0];
+      setTour({
+        id: tourData.id,
+        name: tourData.title,
+        description: tourData.description,
+        price: tourData.price,
+        images: tourData.images.data.map(
+          (img: { url: string; alternativeText: string }) => ({
+            url: img.url,
+            alt: img.alternativeText,
+          })
+        ),
+      });
     };
 
     fetchTour();
@@ -116,25 +96,14 @@ export default function Page({ params }: PageProps) {
 
   useEffect(() => {
     if (!tour) return;
-
     const fetchDisabledDates = async () => {
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/disabled-dates?filters[tour][id][$eq]=${tour.id}&populate=*`
-        );
-
-        if (!res.ok) {
-          throw new Error(`Erro HTTP: ${res.status}`);
-        }
-
-        const data = await res.json();
-        const dates = data.data.map((item: { date: string }) => new Date(item.date));
-        setDisabledDates(dates);
-      } catch (error) {
-        console.error('Erro ao buscar datas bloqueadas:', error);
-      }
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/disabled-dates?filters[tour][id][$eq]=${tour.id}&populate=*`
+      );
+      const data = await res.json();
+      const dates = data.data.map((item: { date: string }) => new Date(item.date));
+      setDisabledDates(dates);
     };
-
     fetchDisabledDates();
   }, [tour]);
 
@@ -226,8 +195,7 @@ export default function Page({ params }: PageProps) {
           </div>
 
           <div className="font-semibold text-xl">
-            Total:{' '}
-            <span className="text-green-600">R$ {total},00</span>
+            Total: <span className="text-green-600">R$ {total},00</span>
           </div>
 
           <button

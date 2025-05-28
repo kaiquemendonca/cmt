@@ -1,12 +1,14 @@
+import React from 'react';
 import TourPageClient from './TourPageClient';
 
 interface TourPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default async function TourPage({ params }: TourPageProps) {
+export default async function TourPage(props: TourPageProps) {
+  const params = await props.params;
   const { slug } = params;
 
   const res = await fetch(

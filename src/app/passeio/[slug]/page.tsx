@@ -5,9 +5,7 @@ interface TourPageProps {
   params: { slug: string };
 }
 
-
-export default async function TourPage(props: TourPageProps) {
-  const params = await props.params;
+export default async function TourPage({ params }: TourPageProps) {
   const { slug } = params;
 
   const res = await fetch(

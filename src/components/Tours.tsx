@@ -6,6 +6,7 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 import type { Swiper as SwiperClass } from 'swiper/types';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
+import Link from 'next/link';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -211,12 +212,17 @@ export default function Tours() {
 
 
                           <div className="flex items-center justify-center mt-4">
-                            <motion.button
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.8 }}
-                              className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-1 rounded-2xl text-white w-full">
-                              <a href={`/passeio/${dados.slug}`}>Ver Detalhes</a>
-                            </motion.button>
+                            
+
+                            <Link href={`/passeio/${dados.slug}`}>
+                              <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.8 }}
+                                className="cursor-pointer border border-[#a3f7f9] border-2 shadow-[2px_2px_30px_2px_#fff] font-thin transition easi-in-out bg-blue-400 text-2xl p-1 rounded-2xl text-white w-full">
+                                Ver Detalhes
+                              </motion.button>
+                            </Link>
+
 
                           </div>
                         </div>

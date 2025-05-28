@@ -1,9 +1,8 @@
+import { Metadata, ResolvingMetadata } from 'next';
 import TourPageClient from './TourPageClient';
 
 type Props = {
-  params: {
-    slug: string;
-  };
+  params: { slug: string };
 };
 
 export default async function TourPage({ params }: Props) {

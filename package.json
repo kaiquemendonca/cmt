@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/next": "^8.0.7",
     "date-fns": "^4.1.0",
     "lib-utils-ts": "^0.0.0-test",
     "lucide-react": "^0.487.0",

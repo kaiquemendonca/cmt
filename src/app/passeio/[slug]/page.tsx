@@ -2,10 +2,9 @@ import React from 'react';
 import TourPageClient from './TourPageClient';
 
 interface TourPageProps {
-  params: Promise<{
-    slug: string;
-  }>;
+  params: { slug: string };
 }
+
 
 export default async function TourPage(props: TourPageProps) {
   const params = await props.params;

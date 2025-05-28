@@ -214,7 +214,7 @@ export default function Tours() {
                           <div className="flex items-center justify-center mt-4">
                             
 
-                            <Link href={`/passeio/${dados.slug}`}>
+                            <Link className='w-full' href={`/passeio/${dados.slug}`}>
                               <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.8 }}

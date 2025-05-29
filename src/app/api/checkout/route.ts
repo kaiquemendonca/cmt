@@ -10,7 +10,7 @@ export async function POST(req: Request) {
 
   const { name, email, phone, date, quantity, tourId, tourName, price } = body;
 
-  const totalPrice = Number(price);
+  const totalPrice = price;
 
   const siteUrl = process.env.NEXT_PUBLIC_URL;
 
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
           {
             id: String(tourId),
             title: tourName,
-            quantity: Number(quantity),
+            quantity: quantity,
             currency_id: 'BRL',
             unit_price: totalPrice,
           },

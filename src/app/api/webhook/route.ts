@@ -15,6 +15,7 @@ export async function POST(req: Request) {
       const payment = await new Payment(mercadopagoClient).get({ id: paymentId });
       const status = payment.status; // approved, pending, rejected
       const metadata = payment.metadata;
+      const reservaId = metadata.reservaId;
 
       const estado =
         status === 'approved'
@@ -29,27 +30,26 @@ export async function POST(req: Request) {
         metadata,
       });
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/reservas`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-        },
-        body: JSON.stringify({
-          data: {
-            documentId: paymentId,
-            name: metadata.customer,
-            email: metadata.customerEmail,
-            phone: metadata.customerPhone,
-            date: metadata.date,
-            quantity: metadata.quantity,
-            estado: estado,
+      // 🔸 Atualiza a reserva existente no Strapi
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/reservas/${reservaId}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
           },
-        }),
-      });
+          body: JSON.stringify({
+            data: {
+              estado: estado,
+              documentId: paymentId, // ID do pagamento no Mercado Pago
+            },
+          }),
+        }
+      );
 
       if (!res.ok) {
-        console.error('Erro ao salvar no Strapi', await res.text());
+        console.error('Erro ao atualizar a reserva no Strapi', await res.text());
       }
 
       return NextResponse.json({ received: true });

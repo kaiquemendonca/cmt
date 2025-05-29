@@ -7,24 +7,45 @@ const client = new MercadoPagoConfig({
 
 export async function POST(req: Request) {
   const body = await req.json();
-
   const { name, email, phone, date, quantity, tourId, tourName, price } = body;
 
   const totalPrice = price;
-
-  const siteUrl = process.env.NEXT_PUBLIC_URL;
-
-  if (!siteUrl) {
-    console.error('Erro: NEXT_PUBLIC_URL não está definida');
-    return NextResponse.json(
-      { error: 'NEXT_PUBLIC_URL não configurada no .env.local' },
-      { status: 500 }
-    );
-  }
-
-  console.log('NEXT_PUBLIC_URL:', siteUrl);
+  const siteUrl = process.env.SITE_URL;
 
   try {
+    // 🔸 Primeiro cria a reserva no Strapi
+    const reservaRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/reservas`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+      },
+      body: JSON.stringify({
+        data: {
+          name,
+          email,
+          phone,
+          date,
+          quantity,
+          estado: 'pendente', // Estado inicial
+          tour: tourId,        // Relacionamento (se existir)
+        },
+      }),
+    });
+
+    const reservaData = await reservaRes.json();
+
+    if (!reservaRes.ok) {
+      console.error('Erro ao criar reserva no Strapi:', reservaData);
+      return NextResponse.json(
+        { error: 'Erro ao criar reserva no Strapi' },
+        { status: 500 }
+      );
+    }
+
+    const reservaId = reservaData.data.id;
+
+    // 🔸 Agora cria a preferência no Mercado Pago
     const preference = await new Preference(client).create({
       body: {
         items: [
@@ -45,13 +66,14 @@ export async function POST(req: Request) {
           },
         },
         back_urls: {
-          success: `${process.env.SITE_URL}/success`,
-          failure: `${process.env.SITE_URL}/failure`,
-          pending: `${process.env.SITE_URL}/pending`,
+          success: `${siteUrl}/success`,
+          failure: `${siteUrl}/failure`,
+          pending: `${siteUrl}/pending`,
         },
         
 
         metadata: {
+          reservaId,         // 🔥 Importante! Passa o ID da reserva criada no Strapi
           tourId,
           date,
           quantity,

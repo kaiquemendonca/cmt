@@ -78,6 +78,8 @@ export default function TourPageClient({ tour }: { tour: any }) {
             router.push(data.url);
         } else {
             alert('Erro ao criar checkout');
+            console.error('Erro ao criar checkout:', data);
+            console.error('Erro ao criar checkout:', tour.id, tour.name, format(selectedDate, 'yyyy-MM-dd'), quantity, total);
         }
     };
 

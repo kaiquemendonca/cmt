@@ -31,7 +31,7 @@ export async function POST(req: Request) {
           {
             id: String(tourId),
             title: tourName,
-            quantity: quantity,
+            quantity: 1,
             currency_id: 'BRL',
             unit_price: totalPrice,
           },

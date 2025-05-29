@@ -5,8 +5,6 @@ const client = new MercadoPagoConfig({
   accessToken: process.env.MERCADO_PAGO_ACCESS_TOKEN as string,
 });
 
-
-
 export async function POST(req: Request) {
   const body = await req.json();
 
@@ -24,10 +22,8 @@ export async function POST(req: Request) {
     );
   }
 
-  console.log('NEXT_PUBLIC_URL:', siteUrl);
-
   try {
-
+    // Cria reserva no Strapi
     const reservaRes = await fetch(`${strapiUrl}/api/reservas`, {
       method: 'POST',
       headers: {
@@ -41,8 +37,8 @@ export async function POST(req: Request) {
           phone,
           date,
           quantity,
-          estado: 'pendente', // Estado inicial
-          tour: tourId,        // Relacionamento com o passeio
+          estado: 'pendente', // <-- Confirme se 'pendente' é um valor válido no enum!
+          tour: tourId,
         },
       }),
     });
@@ -52,14 +48,14 @@ export async function POST(req: Request) {
     if (!reservaRes.ok) {
       console.error('Erro ao criar reserva no Strapi:', reservaData);
       return NextResponse.json(
-        { error: 'Erro ao criar reserva no Strapi' },
+        { error: 'Erro ao criar reserva no Strapi', details: reservaData },
         { status: 500 }
       );
     }
 
     const reservaId = reservaData.data.id;
 
-
+    // Cria preferência no Mercado Pago
     const preference = await new Preference(client).create({
       body: {
         items: [
@@ -80,13 +76,12 @@ export async function POST(req: Request) {
           },
         },
         back_urls: {
-          success: `${process.env.SITE_URL}/success`,
-          failure: `${process.env.SITE_URL}/failure`,
-          pending: `${process.env.SITE_URL}/pending`,
+          success: `${siteUrl}/success`,
+          failure: `${siteUrl}/failure`,
+          pending: `${siteUrl}/pending`,
         },
-        
-
         metadata: {
+          reservaId,
           tourId,
           date,
           quantity,

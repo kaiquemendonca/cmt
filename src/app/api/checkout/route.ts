@@ -10,12 +10,12 @@ export async function POST(req: Request) {
   const { name, email, phone, date, quantity, tourId, tourName, price } = body;
 
   const totalPrice = price;
-  const siteUrl = process.env.NEXT_PUBLIC_URL;
-  console.log('siteUrl', siteUrl);
+  const siteUrl = process.env.SITE_URL;
+  const strapiUrl = process.env.STRAPI_API_URL;
+
   try {
-    // 🔸 Primeiro cria a reserva no Strapi
-    const reservaRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/reservas`, {
-      
+    // 🔸 Cria a reserva no Strapi
+    const reservaRes = await fetch(`${strapiUrl}/api/reservas`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -29,17 +29,14 @@ export async function POST(req: Request) {
           date,
           quantity,
           estado: 'pendente', // Estado inicial
-          tour: tourId,        // Relacionamento (se existir)
+          tour: tourId,        // Relacionamento com o passeio
         },
       }),
     });
 
     const reservaData = await reservaRes.json();
-    
 
     if (!reservaRes.ok) {
-      console.log('siteUrl', siteUrl);
-      console.log('Reserva criada no Strapi:', reservaData);
       console.error('Erro ao criar reserva no Strapi:', reservaData);
       return NextResponse.json(
         { error: 'Erro ao criar reserva no Strapi' },
@@ -49,7 +46,7 @@ export async function POST(req: Request) {
 
     const reservaId = reservaData.data.id;
 
-    // 🔸 Agora cria a preferência no Mercado Pago
+    // 🔸 Cria a preferência no Mercado Pago
     const preference = await new Preference(client).create({
       body: {
         items: [
@@ -66,7 +63,7 @@ export async function POST(req: Request) {
           email: email,
           phone: {
             area_code: '',
-            number: phone.replace(/\D/g, ''),
+            number: phone.replace(/\D/g, ''), // Remove qualquer caractere que não seja número
           },
         },
         back_urls: {
@@ -75,9 +72,8 @@ export async function POST(req: Request) {
           pending: `${siteUrl}/pending`,
         },
         auto_return: 'approved',
-
         metadata: {
-          reservaId,         // 🔥 Importante! Passa o ID da reserva criada no Strapi
+          reservaId,
           tourId,
           date,
           quantity,

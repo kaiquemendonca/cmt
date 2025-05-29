@@ -309,7 +309,7 @@ export default function TourPageClient({ tour }: { tour: any }) {
                         />
 
                         {/* Campo de Data com botão que abre o calendário */}
-                        <div className="w-full">
+                        <div className="w-full text-black">
                             <p className="font-bold mb-1 text-black">Data do passeio:</p>
                             <button
                                 type="button"

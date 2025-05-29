@@ -64,7 +64,7 @@ export default function TourPageClient({ tour }: { tour: any }) {
             method: 'POST',
             body: JSON.stringify({
                 ...form,
-                date: format(selectedDate, 'yyyy-MM-dd'),
+                date: format(selectedDate, 'dd--MM-yyyy'),
                 quantity,
                 tourId: tour.id,
                 tourName: tour.name,

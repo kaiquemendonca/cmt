@@ -58,13 +58,8 @@ export async function POST(req: Request) {
             unit_price: totalPrice,
           },
         ],
-        payer: {
-          name: name,
+        payer: {   
           email: email,
-          phone: {
-            area_code: '',
-            number: phone.replace(/\D/g, ''), // Remove qualquer caractere que não seja número
-          },
         },
         back_urls: {
           success: `${siteUrl}/success`,

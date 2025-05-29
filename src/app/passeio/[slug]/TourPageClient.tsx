@@ -54,7 +54,7 @@ export default function TourPageClient({ tour }: { tour: any }) {
         }
     };
 
-    const image = `${process.env.NEXT_PUBLIC_API_URL}${tour.images[0]?.url}`;
+    const image = tour.images[0]?.url;
 
     // Fetch das datas bloqueadas no Strapi
     useEffect(() => {

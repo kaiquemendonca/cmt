@@ -27,5 +27,5 @@ export default async function TourPage(props: TourPageProps) {
     throw new Error('Passeio não encontrado');
   }
 
-  return <TourPageClient tour={tour} />;
+  return <TourPageClient tour={tour}  />;
 }

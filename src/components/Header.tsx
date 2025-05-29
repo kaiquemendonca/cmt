@@ -1,7 +1,6 @@
 'use client'
-import React, { useState, createContext, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Home, MapPin, Phone } from 'lucide-react';
 
 type HeaderProps = {
     ative: number;

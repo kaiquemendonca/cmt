@@ -69,7 +69,11 @@ export default function TourPageClient({ tour }: { tour: any }) {
                 }
 
                 const data = await res.json();
-                const dates = data.data.map((item: any) => new Date(item.date));
+                const dates = data.data.map((item: any) => {
+                    const [year, month, day] = item.date.split('-');
+                    return new Date(Number(year), Number(month) - 1, Number(day));
+                });
+
                 setDisabledDates(dates);
                 console.log('Datas bloqueadas:', dates);
             } catch (error) {

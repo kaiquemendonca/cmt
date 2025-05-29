@@ -10,11 +10,12 @@ export async function POST(req: Request) {
   const { name, email, phone, date, quantity, tourId, tourName, price } = body;
 
   const totalPrice = price;
-  const siteUrl = process.env.SITE_URL;
-
+  const siteUrl = process.env.NEXT_PUBLIC_URL;
+  console.log('siteUrl', siteUrl);
   try {
     // 🔸 Primeiro cria a reserva no Strapi
-    const reservaRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/reservas`, {
+    const reservaRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/reservas`, {
+      
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,6 +35,7 @@ export async function POST(req: Request) {
     });
 
     const reservaData = await reservaRes.json();
+    console.log('Reserva criada no Strapi:', reservaData);
 
     if (!reservaRes.ok) {
       console.error('Erro ao criar reserva no Strapi:', reservaData);
@@ -70,7 +72,7 @@ export async function POST(req: Request) {
           failure: `${siteUrl}/failure`,
           pending: `${siteUrl}/pending`,
         },
-        
+        auto_return: 'approved',
 
         metadata: {
           reservaId,         // 🔥 Importante! Passa o ID da reserva criada no Strapi

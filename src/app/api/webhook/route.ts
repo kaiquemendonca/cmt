@@ -22,7 +22,7 @@ export async function POST(req: Request) {
           ? 'pago'
           : status === 'pending'
           ? 'pendente'
-          : 'rejeitado';
+          : 'cancelado';
 
       console.log('Pagamento recebido:', {
         paymentId,

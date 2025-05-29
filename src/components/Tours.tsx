@@ -165,7 +165,9 @@ export default function Tours() {
               <AnimatePresence mode="wait">
                 <div className="flex flex-col md:flex-row grid grid-cols-1 md:grid-cols-4 gap-3 items-start justify-between w-full">
                   {tours.map((dados, index) => {
-                    const imageUrl = "https://strapi-n86r.onrender.com" + dados?.images[0]?.url;
+                    const imageUrl = dados?.images[0]?.url;
+                    
+
 
                     return (
 

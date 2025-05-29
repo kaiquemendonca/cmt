@@ -273,12 +273,12 @@ export default function TourPageClient({ tour }: { tour: any }) {
             <div className="flex flex-col md:flex-row gap-8 p-10 md:max-w-7xl mx-auto md:pt-20 md:px-0 pt-15 ">
                 <div className="md:w-2/3">
                     <img src={image} alt={tour?.name} className="w-full h-[70%] rounded-xl" />
-                    <h1 className="text-3xl font-bold mt-4">{tour?.name}</h1>
+                    <h1 className="text-3xl font-bold mt-4 text-black">{tour?.name}</h1>
                     <p className="mt-4 text-gray-600">{tour?.description}</p>
                 </div>
 
                 <div className="md:w-1/3 bg-white shadow-lg rounded-xl p-5 pt-2">
-                    <h2 className="text-2xl font-bold mb-4">Reserve seu passeio</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-black">Reserve seu passeio</h2>
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                         <input
                             type="text"
@@ -287,7 +287,7 @@ export default function TourPageClient({ tour }: { tour: any }) {
                             required
                             value={form?.name}
                             onChange={handleChange}
-                            className="border rounded p-2"
+                            className="border rounded p-2 text-black"
                         />
                         <input
                             type="email"
@@ -296,7 +296,7 @@ export default function TourPageClient({ tour }: { tour: any }) {
                             required
                             value={form.email}
                             onChange={handleChange}
-                            className="border rounded p-2"
+                            className="border rounded p-2 text-black"
                         />
                         <input
                             type="tel"
@@ -305,12 +305,12 @@ export default function TourPageClient({ tour }: { tour: any }) {
                             required
                             value={form.phone}
                             onChange={handleChange}
-                            className="border rounded p-2"
+                            className="border rounded p-2 text-black"
                         />
 
                         {/* Campo de Data com botão que abre o calendário */}
                         <div className="w-full">
-                            <p className="font-bold mb-1">Data do passeio:</p>
+                            <p className="font-bold mb-1 text-black">Data do passeio:</p>
                             <button
                                 type="button"
                                 onClick={() => setShowCalendar(true)}
@@ -323,7 +323,7 @@ export default function TourPageClient({ tour }: { tour: any }) {
                         </div>
 
                         <div>
-                            <p className="font-bold mb-1">Quantidade de pessoas:</p>
+                            <p className="font-bold mb-1 text-black">Quantidade de pessoas:</p>
                             <select
                                 name="quantity"
                                 value={quantity}
@@ -339,7 +339,7 @@ export default function TourPageClient({ tour }: { tour: any }) {
                             </select>
                         </div>
 
-                        <div className="font-semibold text-xl">
+                        <div className="font-semibold text-xl text-black">
                             Total: <span className="text-green-600">R$ {total},00</span>
                         </div>
 
@@ -354,9 +354,9 @@ export default function TourPageClient({ tour }: { tour: any }) {
 
                 {/* Modal Calendário */}
                 {showCalendar && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-white/50">
+                    <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-white/50 text-black">
                         <div className="bg-white rounded-xl shadow-xl p-6 animate-fadeIn">
-                            <h3 className="text-xl font-semibold mb-4 text-center">
+                            <h3 className="text-xl font-semibold mb-4 text-center text-black">
                                 Escolha uma data
                             </h3>
                             <DayPicker

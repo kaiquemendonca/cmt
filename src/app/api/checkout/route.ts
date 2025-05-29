@@ -35,9 +35,11 @@ export async function POST(req: Request) {
     });
 
     const reservaData = await reservaRes.json();
-    console.log('Reserva criada no Strapi:', reservaData);
+    
 
     if (!reservaRes.ok) {
+      console.log('siteUrl', siteUrl);
+      console.log('Reserva criada no Strapi:', reservaData);
       console.error('Erro ao criar reserva no Strapi:', reservaData);
       return NextResponse.json(
         { error: 'Erro ao criar reserva no Strapi' },

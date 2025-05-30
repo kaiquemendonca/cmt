@@ -78,7 +78,7 @@ export default function Tours() {
       body: JSON.stringify({
         name: tour.name,
         description: tour.description,
-        image: 'https://strapi-n86r.onrender.com' + tour.images[0]?.url,
+        image: 'https://strapi-production-1b18.up.railway.app' + tour.images[0]?.url,
         price: tour.price,
       }),
     });

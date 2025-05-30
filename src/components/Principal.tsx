@@ -13,11 +13,11 @@ export const Principal = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: 'easeOut' }}
             id="home"
-            className="relative w-full flex flex-col items-start justify-between snap-start bg-[#0077b6]"
+            className="relative w-full flex flex-col items-start justify-between snap-start bg-[#0077b6] h-auto"
         >
             {/* Imagem de fundo com gradiente inferior */}
             <div
-                className="relative w-full h-[70vh] md:min-h-screen bg-cover bg-center"
+                className="relative w-full h-[80vh] md:min-h-screen bg-cover bg-center"
                 style={{ backgroundImage: `url('/assets/banner.jpg')` }}
             >
                 {/* Escurecimento da imagem */}

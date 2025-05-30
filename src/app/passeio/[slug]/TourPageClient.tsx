@@ -324,7 +324,7 @@ export default function TourPageClient({ tour }: { tour: any }) {
                             </button>
                         </div>
 
-                        <div>
+                        <div className='text-black'>
                             <p className="font-bold mb-1 text-black">Quantidade de pessoas:</p>
                             <select
                                 name="quantity"

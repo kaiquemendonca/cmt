@@ -117,6 +117,7 @@ export default function Tours() {
             className="text-xl md:text-3xl max-w-4xl mb-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 2, delay: 0.5 }}
           >
             PASSEIOS
@@ -125,6 +126,7 @@ export default function Tours() {
             className="text-3xl md:text-7xl font-bold max-w-4xl mb-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 1.0, delay: 0.5 }}
           >
             PLANEJAMENTO <br />
@@ -138,6 +140,7 @@ export default function Tours() {
             className="bg-white text-black px-6 py-2 rounded-full text-lg shadow-lg flex items-center my-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 3, delay: 0.5 }}
           >
             Entenda como funciona

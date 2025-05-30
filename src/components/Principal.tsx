@@ -17,7 +17,7 @@ export const Principal = () => {
         >
             {/* Imagem de fundo com gradiente inferior */}
             <div
-                className="relative w-full h-[80vh] md:min-h-screen bg-cover bg-center"
+                className="relative w-full h-[90vh] md:min-h-screen bg-cover bg-center"
                 style={{ backgroundImage: `url('/assets/banner.jpg')` }}
             >
                 {/* Escurecimento da imagem */}
@@ -158,7 +158,7 @@ export const Principal = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1, }}
                         viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 1, delay: 1.0, ease: 'easeOut' }}
+                        transition={{ duration: 1, delay: 0.8, ease: 'easeOut' }}
                         className="flex">
                         <div className="size-20">
                             <img src="/assets/icones/services.svg" />
@@ -172,7 +172,7 @@ export const Principal = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1, }}
                         viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 1, delay: 1.5, ease: 'easeOut' }}
+                        transition={{ duration: 1, delay: 1.1, ease: 'easeOut' }}
                         className="flex">
                         <div className="size-20">
                             <img src="/assets/icones/car.svg" />
@@ -186,7 +186,7 @@ export const Principal = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1, }}
                         viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 1.0, delay: 2.0, ease: 'easeOut' }}
+                        transition={{ duration: 1.0, delay: 1.4, ease: 'easeOut' }}
                         className="flex">
                         <div className="size-20">
                             <img src="/assets/icones/fotos.svg" />

@@ -110,7 +110,7 @@ export default function Tours() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.3, delay: 0.5 }}
+          transition={{ duration: 1, delay: 0.5 }}
           className="relative z-10 flex flex-col items-start p-10 md:p-30 md:pb-0 justify-start h-[40%] md:h-[100%] text-white"
         >
           <motion.h3
@@ -118,7 +118,7 @@ export default function Tours() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 2, delay: 0.5 }}
+            transition={{ duration: 1, delay: 0.5 }}
           >
             PASSEIOS
           </motion.h3>
@@ -141,7 +141,7 @@ export default function Tours() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 3, delay: 0.5 }}
+            transition={{ duration: 1, delay: 0.5 }}
           >
             Entenda como funciona
             <img src="/assets/icones/seta.svg" className="ml-2" />
@@ -155,7 +155,7 @@ export default function Tours() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
+          transition={{ duration: 1, ease: 'easeOut' }}
           className="flex flex-col p-3 items-center  justify-center md:p-30 md:pt-10 md:mx-auto w-full relative snap-start ">
 
 
@@ -190,7 +190,7 @@ export default function Tours() {
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 0.6, delay: index * 0.5, ease: 'easeOut' }}
+                            transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
                             className="text-justify text-blue-600 text-md mb-2">
                             {dados?.name}
                           </motion.div>
@@ -199,7 +199,7 @@ export default function Tours() {
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 0.6, delay: index * 0.5, ease: 'easeOut' }}
+                            transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
                             className="h-[120px]"
                           >
                             <p className="text-justify mb-2 text-gray-500 text-sm">
@@ -210,7 +210,7 @@ export default function Tours() {
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 0.6, delay: index * 0.5, ease: 'easeOut' }}
+                            transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
                             className="text-green-700 text-justify text-bold text-md rounded-t-xl">
                             R${dados.price}
                           </motion.div>
